@@ -1,0 +1,71 @@
+<mvc:View controllerName="sapvim.controller.InvoiceUpload"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:unified="sap.ui.unified"
+    displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>invUpload}">
+
+        <content>
+            <VBox id="submitVboxPopUp34545">
+                <FlexBox id="fbox1555" class="tabs mySamplePadding">
+                    <VBox id="vbox1555">
+                        <Label id="h1" text="Invoice Details" class="headdingNames" />
+                        <VBox id="hbox445" class="container">
+                            <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a1444" text="Vendor No" />
+                                <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1" width="200%" />
+                            </HBox>
+                            <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a1" text="Reference No"></Text>
+                                <Input id="RefNo" class="sapUiSmallMarginBegin inpWidth2"  width="200%"/>
+                            </HBox>
+                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd">
+                                <Text id="b1444" text="Invoice Date"></Text>
+                                <DatePicker id="invDate" class="sapUiSmallMarginBegin inpWidth3"  width="200%"/>
+                            </HBox>
+                            <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a11" text="Amount"></Text>
+                                <Input id="Amt" type="Number" class="sapUiLargeMarginBegin inpWidth4"  width="200%"/>
+                            </HBox>
+                            <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a111" text="Inv Document"></Text>
+                                <unified:FileUploader id="invDoc" change="handleFileChange" class="sapUiSmallMarginBegin inpWidth5"  width="200%"/>
+                                <Link
+                                    id="selectedFileText"
+                                    class="fileNameStyles sapUiSmallMarginBegin"
+                                    press="openPDF"
+                                />
+                            </HBox>
+                            <PDFViewer
+                                id="_IDGenPDFViewer"
+                                
+                                visible="false"
+                            />
+                            <HBox id="subVbox1154ESign" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a111ESign" text="E-Sign"></Text>
+                                <unified:FileUploader id="eSign" change="handleFileChangeESign" class="sapUiLargeMarginBegin inpWidth6"  width="170%"/>
+                                <Link
+                                    id="selectedFileTextESign"
+                                    class="fileNameStyles sapUiSmallMarginBegin"
+                                    press="openPDFeSign"
+                                />
+                            </HBox>
+                            <PDFViewer
+                                id="_IDGenPDFViewerESign"
+                                visible="false"
+                            />
+                        </VBox>
+                    </VBox>
+                </FlexBox>
+            </VBox>
+        </content>
+        <footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button type="Emphasized" text="Submit" press="onPress" />
+				<!-- <Button text="Default" press="onPress" />
+				<Button icon="sap-icon://action" type="Transparent" press="onPress" /> -->
+			</Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

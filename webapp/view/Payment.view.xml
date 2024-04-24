@@ -1,0 +1,57 @@
+<mvc:View controllerName="sapvim.controller.Payment"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>InvPayment}">
+        <!-- <content >
+            <Text text="njhgfcdx"></Text>
+        </content> -->
+
+        <content>
+            <VBox id="submitVboxPopUp34545">
+                <FlexBox id="fbox1555" class="tabs mySamplePadding">
+                    <VBox id="vbox1555">
+                        <Label id="h1" text="Payment Status Details" class="headdingNames" />
+                        <VBox id="hbox445" class="container">
+                            <HBox id="subVbox1155" class="sapUiTinyMarginBegin inputPymt44">
+                                <Text id="a1444" text="Invoice No." />
+                                <Input id="vendNo" class="sapUiSmallMarginBegin inpWidthPymnt1"
+                                    width="200%" />
+                            </HBox>
+                            <HBox id="subVbox1152" class="sapUiTinyMarginBegin inputPymt44">
+                                <Text id="a1" text="Vendor Name"></Text>
+                                <Input id="RefNo" class="sapUiSmallMarginBegin inpWidthPymnt2"
+                                    width="200%" />
+                            </HBox>
+                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a12" text="PO Ref. No"></Text>
+                                <Input id="invNo" type="Text"
+                                    class="sapUiTinyMarginBegin inpWidthPymnt3" width="200%"
+                                    enabled="true" editable="false" />
+                            </HBox>
+                            <HBox id="subVbox11561" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a13" text="Payment Cleared" class="inputPymt44" />
+                                <!-- <Input id="invNo" type="Text"
+                                    class="sapUiTinyMarginBegin inpWidthInvVerified2" width="200%" enabled="true" editable="false"/> -->
+                                <Text id="a131" text="True"
+                                    class="sapUiTinyMarginBegin inpWidthPymnt4 inputPymt44" />
+                            </HBox>
+                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="b1444" text="Cleared Date"></Text>
+                                <DatePicker id="clearDate"
+                                    class="sapUiSmallMarginBegin inpWidthPymnt5"
+                                    width="200%" enabled="true" editable="false" />
+                            </HBox>
+                            <HBox id="subVbox11562" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a14" text="Bank Account" class="inputPymt44" />
+                                <!-- <Input id="invNo" type="Text"
+                                    class="sapUiTinyMarginBegin inpWidthInvVerified2" width="200%" enabled="true" editable="false"/> -->
+                                <Text id="a141" text="625356735283278583"
+                                    class="sapUiTinyMarginBegin inpWidthPymnt6 inputPymt44" />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </FlexBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

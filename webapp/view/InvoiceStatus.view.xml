@@ -1,0 +1,9 @@
+<mvc:View controllerName="sapvim.controller.InvoiceStatus"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>invStatus}">
+        <content >
+            <Text  text="dhgavxuygs"></Text>
+        </content>
+    </Page>
+</mvc:View>

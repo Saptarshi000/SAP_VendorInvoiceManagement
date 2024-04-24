@@ -1,0 +1,46 @@
+<mvc:View controllerName="sapvim.controller.InvoiceVerified"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>invVerfy}">
+        <!-- <content >
+            <Text text="hjkl" />
+        </content> -->
+
+        <content>
+            <VBox id="submitVboxPopUp34545">
+                <FlexBox id="fbox1555" class="tabs mySamplePadding">
+                    <VBox id="vbox1555">
+                        <Label id="h1" text="Invoice Verification Details" class="headdingNames" />
+                        <VBox id="hbox445" class="container">
+                            <HBox id="subVbox1155" class="sapUiTinyMarginBegin">
+                                <Text id="a1444" text="PO No." />
+                                <Input id="vendNo" class="sapUiSmallMarginBegin inpWidthInvVerified1"
+                                    width="200%" />
+                            </HBox>
+                            <HBox id="subVbox1152" class="sapUiTinyMarginBegin">
+                                <Text id="a1" text="Vendor"></Text>
+                                <Input id="RefNo" class="sapUiSmallMarginBegin inpWidthInvVerified1"
+                                    width="200%" />
+                            </HBox>
+                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a12" text="Invoice No."></Text>
+                                <Input id="invNo" type="Text"
+                                    class="sapUiTinyMarginBegin inpWidthInvVerified2" width="200%" enabled="true" editable="false"/>
+                            </HBox>
+                            <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd">
+                                <Text id="a11" text="Amount"></Text>
+                                <Input id="Amt" type="Number"
+                                    class="sapUiLargeMarginBegin " width="200%" enabled="true" editable="false"/>
+                            </HBox>
+                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd">
+                                <Text id="b1444" text="Posting Date"></Text>
+                                <DatePicker id="invDate" class="sapUiSmallMarginBegin "
+                                    width="200%" enabled="true" editable="false"/>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </FlexBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -68,38 +68,48 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "sapvim.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
+          "routerClass": "sap.m.routing.Router",
+          "viewType": "XML",
+          "async": true,
+          "viewPath": "sapvim.view",
+          "controlAggregation": "pages",
+          "controlId": "app",
+          "clearControlAggregation": false
       },
       "routes": [
-        {
-          "name": "RouteView1",
-          "pattern": ":?query:",
-          "target": [
-            "TargetView1"
-          ]
-        }
+          {
+              "name": "Screen1",
+              "pattern": "",
+              "target": [
+                  "Screen1"
+              ]
+          },
+          {
+              "name": "Screen2",
+              "pattern": "poList",
+              "target": [
+                  "Screen2"
+              ]
+          }
       ],
       "targets": {
-        "TargetView1": {
-          "viewType": "XML",
-          "transition": "slide",
-          "clearControlAggregation": false,
-          "viewId": "View1",
-          "viewName": "View1"
+          "Screen1": {
+              "viewId": "Screen1",
+              "viewName": "Payment"
+          },
+          "Screen2": {
+              "viewId": "Screen2",
+              "viewName": "InvoiceUpload"
+          },
+          "Screen3": {
+            "viewId": "Screen3",
+            "viewName": "Payment"
         }
       }
-    },
+  },
     "rootView": {
       "viewName": "sapvim.view.App",
-      "type": "XML",
-      "async": true,
-      "id": "App"
+      "type": "XML"
     }
   }
 }

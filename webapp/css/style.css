@@ -1,1 +1,300 @@
 /* Enter your custom styles here */
+.cardStyles {
+    margin: 7px;
+    padding: 3px;
+  }
+  /* .cardStyles .sapFCardHeader {
+    background-color: mediumturquoise;
+  } */
+.inpWidth1{
+  margin-left: 50px !important;
+}
+.inpWidth2{
+  margin-left: 30px !important;
+}
+.inpWidth3{
+  margin-left: 37px !important;
+}
+.inpWidth4{
+  margin-left: 65px !important;
+}
+.inpWidth5{
+  margin-left: 27px !important;
+}
+.inpWidth6{
+  margin-left: 73px !important;
+}
+.inpWidthInvVerified1{
+  margin-left: 53px !important;
+}
+.inpWidthInvVerified2{
+  margin-left: 30px !important;
+}
+.inpWidthPymnt1{
+  margin-left: 50px !important;
+}
+.inpWidthPymnt2{
+  margin-left: 35px !important;
+}
+.inpWidthPymnt3{
+  margin-left: 50px !important;
+}
+.inpWidthPymnt4{
+  margin-left: 20px !important;
+}
+.inpWidthPymnt5{
+  margin-left: 40px !important;
+}
+.inpWidthPymnt6{
+  margin-left: 40px !important;
+}
+.inputPymt44{
+  margin-top: 8px !important;
+  margin-bottom: 8px !important
+}
+  .hBoxStyles {
+    margin-left: 7px;
+    margin-right: 10px;
+    padding: 3px;
+    align-items: end;
+  }
+  .emailStyles{
+    margin-right: 39px;
+    padding-left: 3px;
+  }
+  .emailInputStyles{
+    padding-top: 7px;
+  }
+  .meduimLabelMargin{
+    margin-left: 6px;
+  }
+  .bar{
+    margin-top: 2px;
+  }
+  .create{  
+    margin-left: 22px ;
+    border-radius: 5px;
+}
+.sapFCard .sapFCardHeader {
+    border-bottom: 1px solid #cccc;
+    padding-bottom: 0.75rem;
+    /* background-color: #eff4f9;
+    color: #666666; */
+}
+
+.sapMBar {
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 3rem;
+  line-height: 3rem;
+  color: #666666;
+  background-color: #eff4f9;
+  text-shadow: 0 0 0.125rem #ffffff;
+  box-shadow: inset 0 -0.0625rem #d1e0ee;
+}
+.customTable th,
+.customTable td {
+  border: 0.5px solid grey;
+
+}
+.mySamplePadding{
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  
+}
+
+.container{
+  /* display: flex;
+  justify-content: space-between; */
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.tabs{
+  background-color: #fff;
+}
+
+.headdingNames{
+  font-weight: 900;
+}
+.homePageBackground{
+  color: #ffffff;
+  text-shadow: none;
+}
+.sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarLeft, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarLeft, .sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarRight, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarRight, .sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarPH, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarPH {
+  height: 2.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  background-color: #0068b5;
+}
+.sapMIBar-CTX .sapMTitle {
+  color: #ffffff;
+  text-shadow: none;
+  
+}
+.heading3 {
+  padding-left: 27px;
+  margin-top: 10px;
+  font-size: 32px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.cardStyles{
+  margin-left: 25px;
+     margin-top: 15px;
+     justify-content: start;
+     padding: 3px;
+ }
+ .sapMLabel {
+  color: #556b82;
+  font-size: .875rem;
+  font-family: "72", "72full", Arial, Helvetica, sans-serif;
+  font-weight: normal;
+  display: inline-block;
+  white-space: nowrap;
+  cursor: text;
+  overflow: hidden;
+  box-sizing: border-box;
+  --_sap_m_Label_ReservedSpace: 0%;
+  padding: 0px;
+}
+.invoiceStyles{
+  padding-left: 64px
+}
+.invoiceStyles1{
+  padding-left: 50px;
+}
+.paidStyles {
+  padding-left: 90px;
+}
+.paidStyles1{
+  padding-left: 67px
+}
+.invDateStyles {
+  padding-left: 115px;
+}
+.invDateStyles1{
+  padding-left: 93px;
+}
+.dueDateStyles {
+  padding-left: 153px;
+}
+.dueDateStyles1{
+  padding-left: 160px
+  }
+.noteStyles {
+    padding-left: 44px;
+}
+.noteStyles1{
+  padding-left: 137px
+}
+.vBoxStyles{
+  margin: 10px;
+  padding: 3px;
+}
+.createdDate{
+  width: 169px ;
+  margin-left: 8px;
+}
+.targetDate{
+  width: 169px ;
+  margin-left: 18px;
+}
+.totalAttendance{
+  padding-left: 16px;
+  padding-top: 2px;
+}
+.totalAttendance1{
+  padding-left: 20px;
+  padding-top: 2px;
+}
+.meduimLabelMargin {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.radioBtn{
+  margin-right: 62px 
+}
+.totalInvoice{
+  margin-left:35px;
+}
+.customTable th,
+.customTable td {
+  border: 0.5px solid grey;
+  
+
+}
+.detailsBoxStyles{
+  margin: 4px;
+  padding: 3px;
+}
+
+.submitBtn{
+  margin-left: 150px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.cardStyles1{
+  margin-left: 410px;
+  margin-top: 95px;
+}
+.logoclass{
+  margin-left: 180px;
+  margin-top: 20px;
+}
+.usernameStyle{
+  margin-bottom: 5px;
+}
+.usernameStyle2{
+  margin-top: 4px;
+}
+.readOnlyEventDetails{
+  margin-left: 32px
+}
+.readOnlyProsposedDetails{
+  margin-left: 60px
+}
+.heading3 {
+  padding-left: 10px;
+  margin-top: 10px;
+  font-size: 26px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.heading2{
+  font-size: 16px;
+  font-weight: bold;
+}
+.insidePart{
+  padding-left: 45.8%;
+}
+.insidePart1{
+  padding-left: 46.8%;
+}
+.noteStyles22{
+  padding-left: 147px;
+}
+.quotation{
+  padding-left: 44% ;
+}
+.quotation1{
+  padding-left: 42% ;
+}
+.quotation2{
+  padding-left: 44.5% ;
+}
+.version{
+  padding-left: 59px;
+
+}
+.version1{
+  padding-left: 94px;
+
+}
