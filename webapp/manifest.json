@@ -68,45 +68,85 @@
     },
     "routing": {
       "config": {
-          "routerClass": "sap.m.routing.Router",
-          "viewType": "XML",
-          "async": true,
-          "viewPath": "sapvim.view",
-          "controlAggregation": "pages",
-          "controlId": "app",
-          "clearControlAggregation": false
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "sapvim.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
       },
       "routes": [
-          {
-              "name": "Screen1",
-              "pattern": "",
-              "target": [
-                  "Screen1"
-              ]
-          },
-          {
-              "name": "Screen2",
-              "pattern": "poList",
-              "target": [
-                  "Screen2"
-              ]
-          }
+        {
+          "name": "Screen1",
+          "pattern": "",
+          "target": [
+            "Screen1"
+          ]
+        },
+        {
+          "name": "Screen2",
+          "pattern": "newInv",
+          "target": [
+            "Screen2"
+          ]
+        },
+        {
+          "name": "Screen3",
+          "pattern": "myInv",
+          "target": [
+            "Screen3"
+          ]
+        },
+        {
+          "name": "Screen4",
+          "pattern": "invStat",
+          "target": [
+            "Screen4"
+          ]
+        },
+        {
+          "name": "Screen5",
+          "pattern": "pymnt",
+          "target": [
+            "Screen5"
+          ]
+        },
+        {
+          "name": "Screen6",
+          "pattern": "report",
+          "target": [
+            "Screen6"
+          ]
+        }
       ],
       "targets": {
-          "Screen1": {
-              "viewId": "Screen1",
-              "viewName": "Payment"
-          },
-          "Screen2": {
-              "viewId": "Screen2",
-              "viewName": "InvoiceUpload"
-          },
-          "Screen3": {
-            "viewId": "Screen3",
-            "viewName": "Payment"
+        "Screen1": {
+          "viewId": "Screen1",
+          "viewName": "Home"
+        },
+        "Screen2": {
+          "viewId": "Screen2",
+          "viewName": "InvoiceUpload"
+        },
+        "Screen3": {
+          "viewId": "Screen3",
+          "viewName": ""
+        },
+        "Screen4": {
+          "viewId": "Screen4",
+          "viewName": "InvoiceStatus"
+        },
+        "Screen5": {
+          "viewId": "Screen5",
+          "viewName": "Payment"
+        },
+        "Screen6": {
+          "viewId": "Screen6",
+          "viewName": ""
         }
       }
-  },
+    },
     "rootView": {
       "viewName": "sapvim.view.App",
       "type": "XML"

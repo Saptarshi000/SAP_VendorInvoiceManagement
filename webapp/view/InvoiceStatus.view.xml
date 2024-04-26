@@ -3,6 +3,7 @@
     xmlns="sap.m">
     <Page id="page" title="{i18n>invStatus}">
         <content >
+            <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <Text  text="dhgavxuygs"></Text>
         </content>
     </Page>

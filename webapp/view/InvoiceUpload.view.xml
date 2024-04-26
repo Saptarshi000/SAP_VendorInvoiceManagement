@@ -1,71 +1,162 @@
 <mvc:View controllerName="sapvim.controller.InvoiceUpload"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:unified="sap.ui.unified"
+    xmlns:cards="sap.f.cards"
     displayBlock="true"
     xmlns="sap.m">
     <Page id="page" title="{i18n>invUpload}">
 
         <content>
+            <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <VBox id="submitVboxPopUp34545">
                 <FlexBox id="fbox1555" class="tabs mySamplePadding">
                     <VBox id="vbox1555">
                         <Label id="h1" text="Invoice Details" class="headdingNames" />
                         <VBox id="hbox445" class="container">
-                            <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd">
+                            <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1444" text="Vendor No" />
-                                <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1" width="200%" />
+                                <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
+                                    width="200%" />
                             </HBox>
-                            <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd">
+                            <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1" text="Reference No"></Text>
-                                <Input id="RefNo" class="sapUiSmallMarginBegin inpWidth2"  width="200%"/>
+                                <Input id="RefNo" class="sapUiSmallMarginBegin inpWidth2"
+                                    width="200%" />
                             </HBox>
-                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd">
-                                <Text id="b1444" text="Invoice Date"></Text>
-                                <DatePicker id="invDate" class="sapUiSmallMarginBegin inpWidth3"  width="200%"/>
-                            </HBox>
-                            <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd">
+                            
+                            <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a11" text="Amount"></Text>
-                                <Input id="Amt" type="Number" class="sapUiLargeMarginBegin inpWidth4"  width="200%"/>
+                                <Input id="Amt" type="Number"
+                                    class="sapUiLargeMarginBegin inpWidth4" width="200%" />
                             </HBox>
-                            <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd">
+                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a5" text="E-mail"></Text>
+                                <Input id="email" type="Email"
+                                    class="sapUiSmallMarginBegin inpWidth7" width="200%" />
+                            </HBox>
+                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="b1444" text="Invoice Date" />
+                                <DatePicker id="invDate" class="sapUiSmallMarginBegin inpWidth3" />
+                            </HBox>
+                            <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a111" text="Inv Document"></Text>
-                                <unified:FileUploader id="invDoc" change="handleFileChange" class="sapUiSmallMarginBegin inpWidth5"  width="200%"/>
+                                <unified:FileUploader id="invDoc" change="handleFileChange"
+                                    class="sapUiSmallMarginBegin inpWidth5" />
                                 <Link
                                     id="selectedFileText"
-                                    class="fileNameStyles sapUiSmallMarginBegin"
+                                    class="fileNameStyles sapUiSmallMarginBegin inpWidth8 inputPymt44"
                                     press="openPDF"
                                 />
-                            </HBox>
-                            <PDFViewer
-                                id="_IDGenPDFViewer"
-                                
-                                visible="false"
-                            />
-                            <HBox id="subVbox1154ESign" class="sapUiTinyMarginBeginEnd">
-                                <Text id="a111ESign" text="E-Sign"></Text>
-                                <unified:FileUploader id="eSign" change="handleFileChangeESign" class="sapUiLargeMarginBegin inpWidth6"  width="170%"/>
-                                <Link
-                                    id="selectedFileTextESign"
-                                    class="fileNameStyles sapUiSmallMarginBegin"
-                                    press="openPDFeSign"
+                                <PDFViewer
+                                    id="_IDGenPDFViewer"
+                                    visible="false"
                                 />
                             </HBox>
-                            <PDFViewer
-                                id="_IDGenPDFViewerESign"
-                                visible="false"
-                            />
+
                         </VBox>
+                    </VBox>
+                </FlexBox>
+            </VBox>
+            <VBox>
+                <FlexBox id="fbox15555" class="tabs mySamplePadding">
+                    <VBox>
+                        <HBox>
+                            <Table
+                                alternateRowColors="true"
+                                width="auto"
+                                class="table"
+                                id="tableObj"
+                                mode="MultiSelect"
+                                backgroundDesign="Translucent"
+                            >
+                                <columns>
+                                    <Column
+                                        id="_IDGenColumn1"
+                                    >
+                                        <Text
+                                            id="_IDGenText2"
+                                            text="Item No."
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn2">
+                                        <Text
+                                            id="_IDGenText3"
+                                            text="Item ID"
+                                        />
+                                    </Column>
+                                    <Column
+                                        id="_IDGenColumn3"
+                                        width="12%"
+                                        class="header">
+                                        <Text
+                                            id="_IDGenText4"
+                                            text="Description"
+                                            class="header"
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn4">
+                                        <Text
+                                            text="Order Qty."
+                                            id="Order_Qty"
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn5">
+                                        <Text
+                                            id="_IDGenText5"
+                                            text="Deliver Qty."
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn6">
+                                        <Text
+                                            id="_IDGenText6"
+                                            text="Inv. Qty."
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn7">
+                                        <Text
+                                            id="_IDGenText7"
+                                            text="Tax Code"
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn8">
+                                        <Text
+                                            id="_IDGenText8"
+                                            text="Net Price"
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn9">
+                                        <Text
+                                            id="_IDGenText9"
+                                            text="Net Value"
+                                        />
+                                    </Column>
+                                </columns>
+                            </Table>
+                            <Button
+                                id="_IDGenButton2"
+                                icon="sap-icon://add-product"
+                                class="sapUiTinyMarginBegin"
+                                press="addRow"
+                            />
+
+                            <Button
+                                id="_IDGenButton3"
+                                icon="sap-icon://negative"
+                                class="sapUiSmallMarginBegin"
+                                press="deleteRow"
+                            />
+                        </HBox>
+
                     </VBox>
                 </FlexBox>
             </VBox>
         </content>
         <footer>
-			<Toolbar>
-				<ToolbarSpacer/>
-				<Button type="Emphasized" text="Submit" press="onPress" />
-				<!-- <Button text="Default" press="onPress" />
-				<Button icon="sap-icon://action" type="Transparent" press="onPress" /> -->
-			</Toolbar>
+            <Toolbar>
+                <ToolbarSpacer />
+                <Button type="Reject" text="Cancel" press="onPressCancel" />
+                <Button type="Emphasized" text="Submit" press="onPressubmit" />
+            </Toolbar>
         </footer>
     </Page>
 </mvc:View>

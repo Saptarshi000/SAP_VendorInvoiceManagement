@@ -1,0 +1,45 @@
+<mvc:View controllerName="sapvim.controller.Navbar"
+    xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true" xmlns="sap.m">
+    <Bar id="_IDGenPanel1" class="barClass">
+        <contentLeft>
+            <Button
+                id='home'
+                text='Home'
+                icon="sap-icon://home"
+                press="onClickHomeBtn"
+            />
+            <Button
+                id='orders'
+                text='New Invoice'
+                icon="sap-icon://customer-order-entry"
+                press="onClickNewInv"
+            />
+            <Button
+                id='invoices'
+                text='My Invoice'
+                icon="sap-icon://travel-expense-report"
+                press="onClickMyInv"
+            />
+            <Button
+                id='invoicestatus'
+                text='Invoice Status'
+                icon="sap-icon://order-status"
+                press="onClickInvStat"
+            />
+            <Button
+                id='payments'
+                text='Payment Received'
+                icon="sap-icon://batch-payments"
+                press="onClickpymntReceived"
+            />
+            <Button
+                id='dashboard'
+                text='Reports'
+                icon="sap-icon://bbyd-dashboard"
+                press="onClickReport"
+            />
+
+        </contentLeft>
+    </Bar>
+</mvc:View>

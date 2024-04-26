@@ -7,6 +7,7 @@
         </content> -->
 
         <content>
+            <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <VBox id="submitVboxPopUp34545">
                 <FlexBox id="fbox1555" class="tabs mySamplePadding">
                     <VBox id="vbox1555">

@@ -1,0 +1,259 @@
+<mvc:View controllerName="sapvim.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
+            <HBox>
+                <VBox width="25%">
+                    <f:Card
+                        id="_IDGenCard1"
+                        class="cardStyles"
+                        width="100%"
+                        height="85px">
+                        <f:content>
+                            <HBox id="_IDGenHBox2">
+                                <HBox
+                                    id="_IDGenHBox3"
+                                    alignItems="Start"
+                                    class="avatarStyles"
+                                >
+                                    <Avatar
+                                        id="_IDGenAvatar1"
+                                        displaySize="L"
+                                        backgroundColor="Accent1"
+                                        displayShape="Square"
+                                        src="sap-icon://batch-payments"
+                                    />
+                                </HBox>
+                                <HBox
+                                    id="_IDGenHBox4"
+                                    class="detailsBoxStyles"
+                                    items="80">
+                                    <VBox id="_IDGenVBox1">
+                                        <Title
+                                            id="_IDGenText1"
+                                            text="Total PO Value"
+                                        />
+
+                                        <unified:Currency
+                                            id="_IDGenCurrency1"
+                                            class="avatarStyles"
+                                            stringValue="80"
+                                            currency="{Currency}"
+                                            useSymbol="false"
+                                        />
+
+                                    </VBox>
+                                </HBox>
+                            </HBox>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card
+                        id="_IDGenCard2"
+                        class="cardStyles"
+                        width="100%"
+                        height="85px">
+                        <f:content>
+                            <HBox id="_IDGenHBox22">
+                                <HBox
+                                    id="_IDGenHBox32"
+                                    alignItems="Start"
+                                    class="avatarStyles"
+                                >
+                                    <Avatar
+                                        id="_IDGenAvatar12"
+                                        displaySize="L"
+                                        backgroundColor="Accent7"
+                                        displayShape="Square"
+                                        src="sap-icon://sales-order"
+                                    />
+                                </HBox>
+                                <HBox
+                                    id="_IDGenHBox42"
+                                    class="detailsBoxStyles"
+                                    items="80">
+                                    <VBox id="_IDGenVBox12">
+                                        <Title
+                                            id="_IDGenText12"
+                                            text="Invoiced Cleared"
+                                        />
+
+                                        <unified:Currency
+                                            id="_IDGenCurrency12"
+                                            class="avatarStyles"
+                                            stringValue="80"
+                                            currency="{Currency}"
+                                            useSymbol="false"
+                                        />
+
+                                    </VBox>
+                                </HBox>
+                            </HBox>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card
+                        id="_IDGenCard13"
+                        class="cardStyles"
+                        width="100%"
+                        height="85px">
+                        <f:content>
+                            <HBox id="_IDGenHBox23">
+                                <HBox
+                                    id="_IDGenHBox33"
+                                    alignItems="Start"
+                                    class="avatarStyles"
+                                >
+                                    <Avatar
+                                        id="_IDGenAvatar13"
+                                        displaySize="L"
+                                        backgroundColor="Accent8"
+                                        displayShape="Square"
+                                        src="sap-icon://payment-approval"
+                                    />
+                                </HBox>
+                                <HBox
+                                    id="_IDGenHBox43"
+                                    class="detailsBoxStyles"
+                                    items="80">
+                                    <VBox id="_IDGenVBox13">
+                                        <Title
+                                            id="_IDGenText13"
+                                            text="Payment Cleared"
+                                        />
+
+                                        <unified:Currency
+                                            id="_IDGenCurrency13"
+                                            class="avatarStyles"
+                                            stringValue="80"
+                                            currency="{Currency}"
+                                            useSymbol="false"
+                                        />
+
+                                    </VBox>
+                                </HBox>
+                            </HBox>
+                        </f:content>
+                    </f:Card>
+                </VBox>
+                <HBox class="homeHclass">
+                    <VBox >
+                        <HBox class="homeVendorNameAlign">
+                            <Text id="b1444" text="Vendor : " class="homeVendorName"/>
+                            <Text text="S Chandra"/>
+                        </HBox>
+                        
+                        
+                        <HBox class="homeChartsAlign">
+                            <!-- 1st Chart -->
+                            <HBox id="_IDGenHBox213"
+                                class="hbox1IndiseDashBoard">
+                                <viz:VizFrame
+                                    width="450px"
+                                    height="400px"
+                                    class="chartStyles"
+                                    id="_IDGenVizFrame1"
+                                    vizProperties="{title: {text: 'Monthly Invoices'}, plotArea: {dataLabel: {visible: true, type: 'value'}, dataPoint: {stroke: {visible: true}}}}"
+                                    vizType="donut"
+                                >
+                                    <viz:dataset>
+                                        <viz.data:FlattenedDataset
+                                            id="_IDGenFlattenedDataset2"
+                                            data="{/}"
+                                        >
+                                            <viz.data:dimensions>
+                                                <viz.data:DimensionDefinition
+                                                    id="_IDGenDimensionDefinition2"
+                                                    name="Month"
+                                                    value="{Month}"
+                                                />
+                                            </viz.data:dimensions>
+                                            <viz.data:measures>
+                                                <viz.data:MeasureDefinition
+                                                    id="_IDGenMeasureDefinition2"
+                                                    name="Invoices"
+                                                    value="{Invoices}"
+                                                />
+                                            </viz.data:measures>
+                                        </viz.data:FlattenedDataset>
+                                    </viz:dataset>
+                                    <viz:feeds>
+                                        <viz.feeds:FeedItem
+                                            id="_IDGenFeedItem1"
+                                            type="Dimension"
+                                            values="Month"
+                                            uid="color"
+                                        />
+                                        <viz.feeds:FeedItem
+                                            id="_IDGenFeedItem2"
+                                            type="Measure"
+                                            values="Invoices"
+                                            uid="size"
+                                        />
+                                    </viz:feeds>
+                                </viz:VizFrame>
+                            </HBox>
+                            <!-- 2nd Chart -->
+                            <HBox id="_IDGenHBox21344" class="homehbox1IndiseDashBoard">
+                                <viz:VizFrame
+                                    width="450px"
+                                    height="400px"
+                                    class="chartStyles"
+                                    id="_IDGendfVizFrame1"
+                                    vizProperties="{title: {text: 'Monthly Invoices'}, plotArea: {dataLabel: {visible: true}}}"
+                                >
+                                    <viz:dataset>
+                                        <viz.data:FlattenedDataset
+                                            id="_IDGenFlatdftenedDataset2"
+                                            data="{/}"
+                                        >
+                                            <viz.data:dimensions>
+                                                <viz.data:DimensionDefinition
+                                                    id="_IDGedfnDimensionDefinition2"
+                                                    name="Month"
+                                                    value="{Month}"
+                                                />
+                                            </viz.data:dimensions>
+                                            <viz.data:measures>
+                                                <viz.data:MeasureDefinition
+                                                    id="_IDGendfMeasureDefinition2"
+                                                    name="Invoices"
+                                                    value="{Invoices}"
+                                                />
+                                            </viz.data:measures>
+                                        </viz.data:FlattenedDataset>
+                                    </viz:dataset>
+                                    <viz:feeds>
+                                        <viz.feeds:FeedItem
+                                            id="_IDGenFdfeedItem1"
+                                            type="Dimension"
+                                            values="Month"
+                                            uid="categoryAxis"
+                                        />
+                                        <viz.feeds:FeedItem
+                                            id="_IDGedfnFeedItem2"
+                                            type="Measure"
+                                            values="Invoices"
+                                            uid="valueAxis"
+                                        />
+                                    </viz:feeds>
+                                </viz:VizFrame>
+                            </HBox>
+
+                        </HBox>
+                    </VBox>
+                    
+                </HBox>
+            </HBox>
+        </content>
+    </Page>
+</mvc:View>
