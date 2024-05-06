@@ -21,7 +21,7 @@ sap.ui.define([
             },
             onClickMyInv: function () {
                 var routerObj = this.getOwnerComponent().getRouter();
-                routerObj.navTo("");
+                routerObj.navTo("Screen3");
             },
             onClickInvStat: function () {
                 var routerObj = this.getOwnerComponent().getRouter();

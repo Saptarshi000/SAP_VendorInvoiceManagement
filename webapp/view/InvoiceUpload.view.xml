@@ -16,28 +16,31 @@
                             <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1444" text="Vendor No" />
                                 <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
-                                    width="200%" />
+                                    width="200%" maxLength="10"/>
                             </HBox>
                             <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a1" text="Reference No"></Text>
+                                <Text id="a1" text="PO. No"></Text>
                                 <Input id="RefNo" class="sapUiSmallMarginBegin inpWidth2"
-                                    width="200%" />
+                                    width="200%" maxLength="10"/>
                             </HBox>
-                            
-                            <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a11" text="Amount"></Text>
-                                <Input id="Amt" type="Number"
-                                    class="sapUiLargeMarginBegin inpWidth4" width="200%" />
+                            <HBox id="subVbox11522" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a17" text="Vendor Inv. No."></Text>
+                                <Input id="VIN" class="sapUiSmallMarginBegin inpWidth9"
+                                    width="200%" maxLength="40"/>
                             </HBox>
-                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a5" text="E-mail"></Text>
-                                <Input id="email" type="Email"
-                                    class="sapUiSmallMarginBegin inpWidth7" width="200%" />
-                            </HBox>
+
+
                             <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="b1444" text="Invoice Date" />
                                 <DatePicker id="invDate" class="sapUiSmallMarginBegin inpWidth3" />
                             </HBox>
+
+                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                <Text id="a5" text="E-mail"></Text>
+                                <Input id="email" type="Email"
+                                    class="sapUiSmallMarginBegin inpWidth7" width="200%" maxLength="241"/>
+                            </HBox>
+
                             <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a111" text="Inv Document"></Text>
                                 <unified:FileUploader id="invDoc" change="handleFileChange"
@@ -52,6 +55,7 @@
                                     visible="false"
                                 />
                             </HBox>
+
 
                         </VBox>
                     </VBox>
@@ -146,7 +150,11 @@
                                 press="deleteRow"
                             />
                         </HBox>
-
+                        <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt45">
+                            <Text id="a11" text="Amount"></Text>
+                            <Input id="Amt" type="Number"
+                                class="sapUiLargeMarginBegin inpWidth4" width="100%" />
+                        </HBox>
                     </VBox>
                 </FlexBox>
             </VBox>

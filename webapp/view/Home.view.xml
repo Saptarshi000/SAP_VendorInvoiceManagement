@@ -1,8 +1,8 @@
 <mvc:View controllerName="sapvim.controller.Home"
+    displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards"
-    displayBlock="true"
     xmlns="sap.m"
     xmlns:unified="sap.ui.unified"
     xmlns:viz="sap.viz.ui5.controls"
@@ -13,6 +13,11 @@
             <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <HBox>
                 <VBox width="25%">
+                    <HBox class="homeVendorNameAlign">
+                        <Text id="b1444" text="Vendor : " class="homeVendorName" />
+                        <Text text="S Chandra" />
+                    </HBox>
+                    
                     <f:Card
                         id="_IDGenCard1"
                         class="cardStyles"
@@ -146,13 +151,7 @@
                     </f:Card>
                 </VBox>
                 <HBox class="homeHclass">
-                    <VBox >
-                        <HBox class="homeVendorNameAlign">
-                            <Text id="b1444" text="Vendor : " class="homeVendorName"/>
-                            <Text text="S Chandra"/>
-                        </HBox>
-                        
-                        
+                    <VBox>
                         <HBox class="homeChartsAlign">
                             <!-- 1st Chart -->
                             <HBox id="_IDGenHBox213"
@@ -251,7 +250,7 @@
 
                         </HBox>
                     </VBox>
-                    
+
                 </HBox>
             </HBox>
         </content>

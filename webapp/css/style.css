@@ -3,121 +3,159 @@
     margin: 7px;
     padding: 3px;
   } */
-  .cardStyles {
-    /* flex: 1;
+.cardStyles {
+  /* flex: 1;
     width: 25%; */
-    margin-left: 25px;
-    margin-top: 15px;
-    justify-content: start;
-    border: 1px solid transparent;
-    border-radius: 8px !important;
+  margin-left: 25px;
+  margin-top: 15px;
+  justify-content: start;
+  border: 1px solid transparent;
+  border-radius: 8px !important;
 }
+
 .avatarStyles {
   margin-top: 2px;
   margin-right: 14px;
 }
+
 .detailsBoxStyles {
   margin: 4px;
   padding: 3px;
 }
-.homeVendorNameAlign{
-  margin-right: 0px;
-  margin-left: 800px;
+
+.homeVendorNameAlign {
+  margin-top: 6px;
+  margin-left: 30px;
 }
-.homeChartsAlign{
-  margin-top: 20px !important;
+
+.homeChartsAlign {
+  margin-top: 35px !important;
 }
-.homeHclass{
+
+.homeHclass {
   margin-left: 50px !important;
 }
+
 .homehbox1IndiseDashBoard {
   margin-left: 10px;
   border-radius: 5px !important;
 }
-.homeVendorName{
+
+.homeVendorName {
   font-weight: bold;
 }
-.inpWidth1{
+
+.inpWidth1 {
   margin-left: 50px !important;
 }
-.inpWidth2{
-  margin-left: 30px !important;
+
+.inpWidth2 {
+  margin-left: 70px !important;
 }
-.inpWidth3{
+
+.inpWidth3 {
   margin-left: 37px !important;
 }
-.inpWidth4{
-  margin-left: 65px !important;
+
+.inpWidth4 {
+  margin-left: 40px !important;
 }
-.inpWidth5{
+
+.inpWidth5 {
   margin-left: 27px !important;
 }
-.inpWidth6{
+
+.inpWidth6 {
   margin-left: 73px !important;
 }
-.inpWidth7{
+
+.inpWidth7 {
   margin-left: 73px !important;
 }
-.inpWidth8{
+
+.inpWidth8 {
   margin-left: 50px !important;
 }
-.inpWidthInvVerified1{
-  margin-left: 53px !important;
-}
-.inpWidthInvVerified2{
-  margin-left: 30px !important;
-}
-.inpWidthPymnt1{
-  margin-left: 50px !important;
-}
-.inpWidthPymnt2{
-  margin-left: 35px !important;
-}
-.inpWidthPymnt3{
-  margin-left: 50px !important;
-}
-.inpWidthPymnt4{
+
+.inpWidth9 {
   margin-left: 20px !important;
 }
-.inpWidthPymnt5{
+
+.inpWidthInvVerified1 {
+  margin-left: 53px !important;
+}
+
+.inpWidthInvVerified2 {
+  margin-left: 30px !important;
+}
+
+.inpWidthPymnt1 {
+  margin-left: 50px !important;
+}
+
+.inpWidthPymnt2 {
+  margin-left: 35px !important;
+}
+
+.inpWidthPymnt3 {
+  margin-left: 50px !important;
+}
+
+.inpWidthPymnt4 {
+  margin-left: 20px !important;
+}
+
+.inpWidthPymnt5 {
   margin-left: 40px !important;
 }
-.inpWidthPymnt6{
+
+.inpWidthPymnt6 {
   margin-left: 40px !important;
 }
-.inputPymt44{
+
+.inputPymt44 {
   margin-top: 8px !important;
   margin-bottom: 8px !important
 }
 
-
-  .hBoxStyles {
-    margin-left: 7px;
-    margin-right: 10px;
-    padding: 3px;
-    align-items: end;
-  }
-  .emailStyles{
-    margin-right: 39px;
-    padding-left: 3px;
-  }
-  .emailInputStyles{
-    padding-top: 7px;
-  }
-  .meduimLabelMargin{
-    margin-left: 6px;
-  }
-  .bar{
-    margin-top: 2px;
-  }
-  .create{  
-    margin-left: 22px ;
-    border-radius: 5px;
+.inputPymt45 {
+  margin-top: 20px !important;
+  margin-bottom: 8px !important
 }
+
+.hBoxStyles {
+  margin-left: 7px;
+  margin-right: 10px;
+  padding: 3px;
+  align-items: end;
+}
+
+.emailStyles {
+  margin-right: 39px;
+  padding-left: 3px;
+}
+
+.emailInputStyles {
+  padding-top: 7px;
+}
+
+.meduimLabelMargin {
+  margin-left: 6px;
+}
+
+.bar {
+  margin-top: 2px;
+}
+
+.create {
+  margin-left: 22px;
+  border-radius: 5px;
+}
+
 .sapFCard .sapFCardHeader {
-    border-bottom: 1px solid #cccc;
-    padding-bottom: 0.75rem;
-    /* background-color: #eff4f9;
+  border-bottom: 1px solid #cccc;
+  padding-bottom: 0.75rem;
+  /* background-color: #eff4f9;
     color: #666666; */
 }
 
@@ -132,48 +170,60 @@
   text-shadow: 0 0 0.125rem #ffffff;
   box-shadow: inset 0 -0.0625rem #d1e0ee;
 }
+
 .customTable th,
 .customTable td {
   border: 0.5px solid grey;
 
 }
-.mySamplePadding{
+
+.mySamplePadding {
   padding: 10px;
   margin: 10px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  
+  margin-left: 20px !important;
+
 }
 
-.container{
+.container {
   /* display: flex;
   justify-content: space-between; */
   flex-wrap: wrap;
   margin-top: 40px;
 }
 
-.tabs{
+.tabs {
   background-color: #fff;
 }
 
-.headdingNames{
+.headdingNames {
   font-weight: 900;
 }
-.homePageBackground{
+
+.homePageBackground {
   color: #ffffff;
   text-shadow: none;
 }
-.sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarLeft, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarLeft, .sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarRight, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarRight, .sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarPH, .sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarPH {
+
+.sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarLeft,
+.sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarLeft,
+.sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarRight,
+.sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarRight,
+.sapUiSizeCompact .sapMPageHeader .sapMIBar .sapMBarPH,
+.sapUiSizeCompact .sapMPageFooter .sapMIBar .sapMBarPH {
   height: 2.5rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
   background-color: #0068b5;
 }
+
 .sapMIBar-CTX .sapMTitle {
   color: #ffffff;
   text-shadow: none;
-  
+
 }
+
 .heading3 {
   padding-left: 27px;
   margin-top: 10px;
@@ -182,13 +232,15 @@
   border-bottom: 1px solid #ccc;
   padding-bottom: 10px;
 }
-.cardStyles{
+
+.cardStyles {
   margin-left: 25px;
-     margin-top: 15px;
-     justify-content: start;
-     padding: 3px;
- }
- .sapMLabel {
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.sapMLabel {
   color: #556b82;
   font-size: .875rem;
   font-family: "72", "72full", Arial, Helvetica, sans-serif;
@@ -201,103 +253,129 @@
   --_sap_m_Label_ReservedSpace: 0%;
   padding: 0px;
 }
-.invoiceStyles{
+
+.invoiceStyles {
   padding-left: 64px
 }
-.invoiceStyles1{
+
+.invoiceStyles1 {
   padding-left: 50px;
 }
+
 .paidStyles {
   padding-left: 90px;
 }
-.paidStyles1{
+
+.paidStyles1 {
   padding-left: 67px
 }
+
 .invDateStyles {
   padding-left: 115px;
 }
-.invDateStyles1{
+
+.invDateStyles1 {
   padding-left: 93px;
 }
+
 .dueDateStyles {
   padding-left: 153px;
 }
-.dueDateStyles1{
+
+.dueDateStyles1 {
   padding-left: 160px
-  }
-.noteStyles {
-    padding-left: 44px;
 }
-.noteStyles1{
+
+.noteStyles {
+  padding-left: 44px;
+}
+
+.noteStyles1 {
   padding-left: 137px
 }
-.vBoxStyles{
+
+.vBoxStyles {
   margin: 10px;
   padding: 3px;
 }
-.createdDate{
-  width: 169px ;
+
+.createdDate {
+  width: 169px;
   margin-left: 8px;
 }
-.targetDate{
-  width: 169px ;
+
+.targetDate {
+  width: 169px;
   margin-left: 18px;
 }
-.totalAttendance{
+
+.totalAttendance {
   padding-left: 16px;
   padding-top: 2px;
 }
-.totalAttendance1{
+
+.totalAttendance1 {
   padding-left: 20px;
   padding-top: 2px;
 }
+
 .meduimLabelMargin {
   margin-left: 10px;
   margin-right: 10px;
 }
-.radioBtn{
-  margin-right: 62px 
+
+.radioBtn {
+  margin-right: 62px
 }
-.totalInvoice{
-  margin-left:35px;
+
+.totalInvoice {
+  margin-left: 35px;
 }
+
 .customTable th,
 .customTable td {
   border: 0.5px solid grey;
-  
+
 
 }
-.detailsBoxStyles{
+
+.detailsBoxStyles {
   margin: 4px;
   padding: 3px;
 }
 
-.submitBtn{
+.submitBtn {
   margin-left: 150px;
   margin-top: 30px;
   margin-bottom: 15px;
 }
 
-.cardStyles1{
+.cardStyles1 {
   margin-left: 410px;
   margin-top: 95px;
 }
-.logoclass{
+
+.logoclass {
   margin-left: 180px;
   margin-top: 20px;
 }
-.usernameStyle{
+
+.usernameStyle {
   margin-bottom: 5px;
 }
-.usernameStyle2{
+
+.usernameStyle2 {
   margin-top: 4px;
 }
-.readOnlyEventDetails{
+
+.readOnlyEventDetails {
   margin-left: 32px
 }
-.readOnlyProsposedDetails{
+
+.readOnlyProsposedDetails {
   margin-left: 60px
 }
+
 .heading3 {
   padding-left: 10px;
   margin-top: 10px;
@@ -307,33 +385,94 @@
   padding-bottom: 10px;
   font-weight: bold;
 }
-.heading2{
+
+.heading2 {
   font-size: 16px;
   font-weight: bold;
 }
-.insidePart{
+
+.insidePart {
   padding-left: 45.8%;
 }
-.insidePart1{
+
+.insidePart1 {
   padding-left: 46.8%;
 }
-.noteStyles22{
+
+.noteStyles22 {
   padding-left: 147px;
 }
-.quotation{
-  padding-left: 44% ;
+
+.quotation {
+  padding-left: 44%;
 }
-.quotation1{
-  padding-left: 42% ;
+
+.quotation1 {
+  padding-left: 42%;
 }
-.quotation2{
-  padding-left: 44.5% ;
+
+.quotation2 {
+  padding-left: 44.5%;
 }
-.version{
+
+.version {
   padding-left: 59px;
 
 }
-.version1{
-  padding-left: 94px;
 
+.version1 {
+  padding-left: 94px;
+}
+
+.myInvcardStyles1 {
+  margin-left: 20px;
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.myInvcardStyles2 {
+  margin-left: 30px;
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.myInvFilterSec{
+  margin-left: 100px !important;
+}
+
+.myInvFilterSecBtn{
+  margin-left: 20px !important;
+}
+
+.myInvBtnFilter {
+  margin-top: 25px !important;
+  margin-bottom: 8px !important
+}
+
+.pymntcardStyles1{
+  margin-left: 20px;
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.pymntcardStyles2{
+  margin-left: 180px !important;
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.pymntcardStyles3{
+  margin-left: 200px !important;
+  margin-top: 15px;
+  justify-content: start;
+  padding: 3px;
+}
+
+.filterAreaSizing{
+  margin-left: 17px !important;
+  margin-top: 15px !important;
 }
