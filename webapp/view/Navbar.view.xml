@@ -21,12 +21,12 @@
                 icon="sap-icon://travel-expense-report"
                 press="onClickMyInv"
             />
-            <Button
+            <!-- <Button
                 id='invoicestatus'
                 text='Invoice Status'
                 icon="sap-icon://order-status"
                 press="onClickInvStat"
-            />
+            /> -->
             <Button
                 id='payments'
                 text='Payment Received'

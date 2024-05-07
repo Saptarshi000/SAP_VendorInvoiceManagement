@@ -10,6 +10,10 @@ sap.ui.define([
 
         return Controller.extend("sapvim.controller.Home", {
             onInit: function () {
+                var a = this.byId('_IDGenText2').getText();
+
+                this.getDataValue(a);
+
                 var oData = {
                     "SelectedProduct": "USD",
                     "SelectedProduct2": "PO",
@@ -93,12 +97,37 @@ sap.ui.define([
                     { Month: 'Apr', Invoices: "56" },
                     { Month: 'May', Invoices: "562" },
                     { Month: 'Jun', Invoices: "566" },
-                   ]
+                ]
                 var jsonModel = new JSONModel();
                 jsonModel.setData(jsonData1);
                 oVizFrame.setModel(jsonModel);
                 oVizFrame1.setModel(jsonModel);
                 // oVizFrame2.setModel(jsonModel);
+
+
+
+            },
+            getDataValue: function (venId) {
+                // BusyIndicator.show();
+                var that = this;
+                var oModel = this.getOwnerComponent().getModel();
+                // console.log(venId);
+                console.log(oModel)
+
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_totSet('${venId}')`, {
+                    success: function (oData) {
+                        console.log(oData);
+                        var jModel = new JSONModel(oData);
+                        that.getView().setModel(jModel, "homeValue")
+
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
             }
         });
     });

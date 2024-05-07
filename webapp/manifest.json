@@ -1,155 +1,178 @@
 {
-  "_version": "1.59.0",
-  "sap.app": {
-    "id": "sapvim",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
+    "_version": "1.59.0",
+    "sap.app": {
+        "id": "sapvim",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.13.2",
+            "toolsId": "1d9e206f-fe7d-475c-84d9-3fc4caa19db5"
+        },
+        "dataSources": {
+            "ZAP_PO_SRV": {
+                "uri": "/sap/opu/odata/sap/ZAP_PO_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
     },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.13.2",
-      "toolsId": "1d9e206f-fe7d-475c-84d9-3fc4caa19db5"
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.123.1",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sapvim.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZAP_PO_SRV",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "sapvim.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "Screen1",
+                    "pattern": "",
+                    "target": [
+                        "Screen1"
+                    ]
+                },
+                {
+                    "name": "Screen2",
+                    "pattern": "newInv",
+                    "target": [
+                        "Screen2"
+                    ]
+                },
+                {
+                    "name": "Screen3",
+                    "pattern": "myInv",
+                    "target": [
+                        "Screen3"
+                    ]
+                },
+                {
+                    "name": "Screen4",
+                    "pattern": "invStat",
+                    "target": [
+                        "Screen4"
+                    ]
+                },
+                {
+                    "name": "Screen5",
+                    "pattern": "pymnt",
+                    "target": [
+                        "Screen5"
+                    ]
+                },
+                {
+                    "name": "Screen6",
+                    "pattern": "report",
+                    "target": [
+                        "Screen6"
+                    ]
+                }
+            ],
+            "targets": {
+                "Screen1": {
+                    "viewId": "Screen1",
+                    "viewName": "Home"
+                },
+                "Screen2": {
+                    "viewId": "Screen2",
+                    "viewName": "InvoiceUpload"
+                },
+                "Screen3": {
+                    "viewId": "Screen3",
+                    "viewName": "MyInvoice"
+                },
+                "Screen4": {
+                    "viewId": "Screen4",
+                    "viewName": "InvoiceStatus"
+                },
+                "Screen5": {
+                    "viewId": "Screen5",
+                    "viewName": "Payment"
+                },
+                "Screen6": {
+                    "viewId": "Screen6",
+                    "viewName": ""
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "sapvim.view.App",
+            "type": "XML"
+        }
     }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    }
-  },
-  "sap.ui5": {
-    "flexEnabled": true,
-    "dependencies": {
-      "minUI5Version": "1.123.1",
-      "libs": {
-        "sap.m": {},
-        "sap.ui.core": {},
-        "sap.f": {},
-        "sap.suite.ui.generic.template": {},
-        "sap.ui.comp": {},
-        "sap.ui.generic.app": {},
-        "sap.ui.table": {},
-        "sap.ushell": {}
-      }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "sapvim.i18n.i18n"
-        }
-      }
-    },
-    "resources": {
-      "css": [
-        {
-          "uri": "css/style.css"
-        }
-      ]
-    },
-    "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "viewType": "XML",
-        "async": true,
-        "viewPath": "sapvim.view",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "clearControlAggregation": false
-      },
-      "routes": [
-        {
-          "name": "Screen1",
-          "pattern": "",
-          "target": [
-            "Screen1"
-          ]
-        },
-        {
-          "name": "Screen2",
-          "pattern": "newInv",
-          "target": [
-            "Screen2"
-          ]
-        },
-        {
-          "name": "Screen3",
-          "pattern": "myInv",
-          "target": [
-            "Screen3"
-          ]
-        },
-        {
-          "name": "Screen4",
-          "pattern": "invStat",
-          "target": [
-            "Screen4"
-          ]
-        },
-        {
-          "name": "Screen5",
-          "pattern": "pymnt",
-          "target": [
-            "Screen5"
-          ]
-        },
-        {
-          "name": "Screen6",
-          "pattern": "report",
-          "target": [
-            "Screen6"
-          ]
-        }
-      ],
-      "targets": {
-        "Screen1": {
-          "viewId": "Screen1",
-          "viewName": "Home"
-        },
-        "Screen2": {
-          "viewId": "Screen2",
-          "viewName": "InvoiceUpload"
-        },
-        "Screen3": {
-          "viewId": "Screen3",
-          "viewName": "MyInvoice"
-        },
-        "Screen4": {
-          "viewId": "Screen4",
-          "viewName": "InvoiceStatus"
-        },
-        "Screen5": {
-          "viewId": "Screen5",
-          "viewName": "Payment"
-        },
-        "Screen6": {
-          "viewId": "Screen6",
-          "viewName": ""
-        }
-      }
-    },
-    "rootView": {
-      "viewName": "sapvim.view.App",
-      "type": "XML"
-    }
-  }
 }

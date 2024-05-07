@@ -4,22 +4,146 @@ sap.ui.define([
     "sap/ui/core/date/UI5Date",
     "sap/m/ColumnListItem",
     "sap/m/Input",
-    "sap/ui/core/format/NumberFormat",
-    "sap/m/Popover",
-    "sap/m/SearchField",
     "sap/m/StandardListItem",
     "sap/m/PDFViewer",
-    "sap/m/List"
+    "sap/m/List",
+    "sap/m/ActionListItem",
+    "sap/m/Dialog",
+    "sap/m/Button",
+    "sap/m/ButtonType",
+    "sap/ui/model/json/JSONModel"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox, UI5Date, ColumnListItem, Input) {
+    function (Controller, MessageBox, UI5Date, ColumnListItem, Input, StandardListItem, PDFViewer, List, ActionListItem, Dialog, Button, ButtonType, JSONModel) {
         "use strict";
 
         return Controller.extend("sapvim.controller.InvoiceUpload", {
             onInit: function () {
+                this.byId("invDate").setMaxDate(new Date());
+            },
+            getAllPO: function () {
+                var that = this;
 
+                var venId = that.byId("vendNo").getValue();
+                var oModel = this.getOwnerComponent().getModel();
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_totSet('${venId}')`, {
+                    urlParameters: {
+                        "$expand": "po_listSet",
+                    },
+                    success: function (oData) {
+                        console.log(oData.po_listSet.results);
+                        var dataSetDetails = oData.po_listSet.results
+                        // var jModel = new JSONModel(oData);
+                        // that.getView().setModel(jModel, "homeValue")
+
+                        // Create a List control to display po 
+                        var oList = new sap.m.List({
+                            selectionChange: function (oEvent) {
+                                var selectedItem = oEvent.getParameter("listItem");
+                                // console.log("Selected costcenter:", selectedItem.getTitle());
+                                var oInput = that.getView().byId('poNo');
+                                if (oInput) {
+                                    oInput.setValue(selectedItem.getTitle());
+                                } else {
+                                    console.error("Input field not found.");
+                                }
+                                oDialog.close();
+                                console.log(that.byId("poNo").getValue())
+                                that.getPoLineItems(that.byId("poNo").getValue())
+                            },
+                            mode: sap.m.ListMode.SingleSelectLeft
+                        });
+
+                        // Add list items for each po detail
+                        for (let po of dataSetDetails) {
+                            var listItem = new StandardListItem({
+                                title: po['po_no']
+                            });
+                            oList.addItem(listItem);
+                        }
+
+                        // Create the Dialog with the List control as content
+                        var oDialog = new sap.m.Dialog({
+                            title: "Choose ",
+                            content: oList, endButton: new sap.m.Button({
+                                text: "Close",
+                                press: function () {
+                                    oDialog.close();
+                                }
+                            })
+                        });
+                        that.getView().addDependent(oDialog);
+                        oDialog.open();
+
+
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
+            },
+            getPoLineItems: function (po_num) {
+                var that = this;
+                var oModel = this.getOwnerComponent().getModel();
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_headerSet('${po_num}')`, {
+                    urlParameters: {
+                        "$expand": "po_lineitemSet",
+                    },
+                    success: function (oData) {
+                        console.log("PO LINES")
+                        console.log(oData.po_lineitemSet);
+                        var jModel = new JSONModel(oData.po_lineitemSet);
+                        // console.log(jModel)
+                        that.getView().setModel(jModel, "poLineItems");
+
+                        // console.log()
+
+
+                        console.log("CHeck table")
+
+                        var aItems = that.byId("tableObj").getItems()
+
+                        for (let oItem of aItems) {
+                            var oInput = oItem.getAggregation("cells")[4].getProperty("text")
+                            console.log(oInput)
+
+                            var oInput2 = oItem.getAggregation("cells")[5].getId()
+                            console.log(oInput2)
+
+                            if (oInput == 0) {
+                                sap.ui.getCore().byId(oInput2).setEditable(false);
+                            } else {
+                                sap.ui.getCore().byId(oInput2).setEditable(true);
+                            }
+                        }
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
+            },
+            handleChangeQty: function (oEvent) {
+                var aItems = this.byId("tableObj").getItems()
+                for (let oItem of aItems) {
+                    let oText = oItem.getAggregation("cells")[7].getProperty("text")
+                    console.log(oText)
+
+                    let oInput = oItem.getAggregation("cells")[5].getValue()
+                    console.log(oInput)
+
+                    let tot = parseFloat(oText) * parseFloat(oInput)
+
+                    var ooText = oItem.getCells()[8];
+                    ooText.setText(tot);
+                }
             },
             handleFileChange: function (oEvent) {
 
@@ -80,8 +204,7 @@ sap.ui.define([
 
                 var tableObj = this.byId('tableObj')
                 var length = tableObj.getItems().length;
-                if (length >= 10) 
-                {
+                if (length >= 10) {
                     MessageBox.warning("Cannot add more than 10 rows");
                 } else {
                     tableObj.addItem(columns);
@@ -104,6 +227,56 @@ sap.ui.define([
                     MessageBox.warning("No rows to delete");
                 }
                 // this.totalAmt();
+            },
+            onPressubmit: function () {
+                var oTable_Selected = this.getView().byId("tableObj").getSelectedItems();
+
+                var jsonArr = [];
+                var sumAmt=0;
+
+                for (let selectedItem of oTable_Selected) {
+                    sumAmt = sumAmt + parseFloat( selectedItem.getCells()[8].getText() )
+                    // console.log( selectedItem.getCells()[8].getText() )
+                    jsonArr.push({
+                        "PoNo": this.byId("poNo").getValue(),
+                        "PortalNo": "",
+                        "LineNo": selectedItem.getCells()[0].getText(),
+                        "Item": selectedItem.getCells()[1].getText(),
+                        "ItemDesc": selectedItem.getCells()[2].getText(),
+                        "OrderQuantity": selectedItem.getCells()[3].getText(),
+                        "DeliverQuantity": selectedItem.getCells()[4].getText(),
+                        "InvoiceQty": selectedItem.getCells()[5].getValue(),
+                        "Taxcode": selectedItem.getCells()[6].getText(),
+                        "Taxamt": "",
+                        "Netpr": selectedItem.getCells()[7].getText(),
+                        "Netwr": selectedItem.getCells()[8].getText(),
+                        "Uom": ""
+                    })
+                }
+
+                let payload = {
+                    "VenderNo": this.byId("vendNo").getValue(),
+                    "PoNo": this.byId("poNo").getValue(),
+                    "PortalNo": "",
+                    "InvoiceNo": this.byId("VIN").getValue(),
+                    "InvoiceDate": this.byId("invDate").getValue(),
+                    "Email": this.byId("email").getValue(),
+                    "TotalSubAmt": sumAmt.toString(),
+                    "po_lineitemSet": {
+                        "results": jsonArr
+                    }
+                }
+                console.log(payload)
+
+                var oModel = this.getOwnerComponent().getModel();
+                oModel.setUseBatch(false);
+
+                // oModel.create("/po_headerSet", payload, null, function (oData, oResponse) {
+                //     alert("OK");
+                // },
+                //     function (err) {
+                //         alert("Error");
+                //     });
             }
         });
     });

@@ -15,7 +15,7 @@
                 <VBox width="25%">
                     <HBox class="homeVendorNameAlign">
                         <Text id="b1444" text="Vendor : " class="homeVendorName" />
-                        <Text text="S Chandra" />
+                        <Text id="_IDGenText2" text="17300002" />
                     </HBox>
                     
                     <f:Card
@@ -51,8 +51,8 @@
                                         <unified:Currency
                                             id="_IDGenCurrency1"
                                             class="avatarStyles"
-                                            stringValue="80"
-                                            currency="{Currency}"
+                                            stringValue="{homeValue>/tot}"
+                                            
                                             useSymbol="false"
                                         />
 
@@ -89,13 +89,13 @@
                                     <VBox id="_IDGenVBox12">
                                         <Title
                                             id="_IDGenText12"
-                                            text="Invoiced Cleared"
+                                            text="Invoiced Created"
                                         />
 
                                         <unified:Currency
                                             id="_IDGenCurrency12"
                                             class="avatarStyles"
-                                            stringValue="80"
+                                            stringValue="{homeValue>/cret}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -139,8 +139,8 @@
                                         <unified:Currency
                                             id="_IDGenCurrency13"
                                             class="avatarStyles"
-                                            stringValue="80"
-                                            currency="{Currency}"
+                                            stringValue="{homeValue>/paid}"
+                                            currency="{USD}"
                                             useSymbol="false"
                                         />
 
