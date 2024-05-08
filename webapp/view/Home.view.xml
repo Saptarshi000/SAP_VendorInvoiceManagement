@@ -22,7 +22,7 @@
                         id="_IDGenCard1"
                         class="cardStyles"
                         width="100%"
-                        height="85px">
+                        height="130px">
                         <f:content>
                             <HBox id="_IDGenHBox2">
                                 <HBox
@@ -32,7 +32,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar1"
-                                        displaySize="L"
+                                        displaySize="XL"
                                         backgroundColor="Accent1"
                                         displayShape="Square"
                                         src="sap-icon://batch-payments"
@@ -66,7 +66,7 @@
                         id="_IDGenCard2"
                         class="cardStyles"
                         width="100%"
-                        height="85px">
+                        height="130px">
                         <f:content>
                             <HBox id="_IDGenHBox22">
                                 <HBox
@@ -76,7 +76,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar12"
-                                        displaySize="L"
+                                        displaySize="XL"
                                         backgroundColor="Accent7"
                                         displayShape="Square"
                                         src="sap-icon://sales-order"
@@ -110,7 +110,7 @@
                         id="_IDGenCard13"
                         class="cardStyles"
                         width="100%"
-                        height="85px">
+                        height="130px">
                         <f:content>
                             <HBox id="_IDGenHBox23">
                                 <HBox
@@ -120,7 +120,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar13"
-                                        displaySize="L"
+                                        displaySize="XL"
                                         backgroundColor="Accent8"
                                         displayShape="Square"
                                         src="sap-icon://payment-approval"

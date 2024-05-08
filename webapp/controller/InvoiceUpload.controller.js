@@ -11,7 +11,8 @@ sap.ui.define([
     "sap/m/Dialog",
     "sap/m/Button",
     "sap/m/ButtonType",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/m/MessageBox"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -232,10 +233,10 @@ sap.ui.define([
                 var oTable_Selected = this.getView().byId("tableObj").getSelectedItems();
 
                 var jsonArr = [];
-                var sumAmt=0;
+                var sumAmt = 0;
 
                 for (let selectedItem of oTable_Selected) {
-                    sumAmt = sumAmt + parseFloat( selectedItem.getCells()[8].getText() )
+                    sumAmt = sumAmt + parseFloat(selectedItem.getCells()[8].getText())
                     // console.log( selectedItem.getCells()[8].getText() )
                     jsonArr.push({
                         "PoNo": this.byId("poNo").getValue(),
@@ -247,7 +248,7 @@ sap.ui.define([
                         "DeliverQuantity": selectedItem.getCells()[4].getText(),
                         "InvoiceQty": selectedItem.getCells()[5].getValue(),
                         "Taxcode": selectedItem.getCells()[6].getText(),
-                        "Taxamt": "",
+                        "Taxamt": "0.000",
                         "Netpr": selectedItem.getCells()[7].getText(),
                         "Netwr": selectedItem.getCells()[8].getText(),
                         "Uom": ""
@@ -271,12 +272,20 @@ sap.ui.define([
                 var oModel = this.getOwnerComponent().getModel();
                 oModel.setUseBatch(false);
 
-                // oModel.create("/po_headerSet", payload, null, function (oData, oResponse) {
-                //     alert("OK");
-                // },
-                //     function (err) {
-                //         alert("Error");
-                //     });
+                oModel.create("/po_headerSet", payload, {
+                    success: function (oData, oResponse) {
+                       
+                        let p = JSON.parse(oResponse.headers['sap-message'])
+                        console.log(p)
+                        MessageBox.success(`${p.message}`)
+                     
+                    },
+                    error: function (err) {
+                        var rr = JSON.parse(err.responseText)
+                        MessageBox.error(rr.error.message.value);
+                    }
+                })
+
             }
         });
     });

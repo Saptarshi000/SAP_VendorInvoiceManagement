@@ -181,13 +181,16 @@
                                 </items>
                             </Table>
                         </HBox>
-                        <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt45">
-                            <Text id="a11" text="Amount"></Text>
-                            <Input id="Amt" type="Number"
-                                class="sapUiLargeMarginBegin inpWidth4" width="100%" />
-                        </HBox>
+                       
                     </VBox>
                 </FlexBox>
+            </VBox>
+            <VBox class="tabs mySamplePadding" width="30%">
+                <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt45">
+                    <Text id="a11" text="Tot. Amount"></Text>
+                    <Input id="Amt" type="Number"
+                        class="sapUiLargeMarginBegin inpWidth4" width="100%" />
+                </HBox>
             </VBox>
         </content>
         <footer>
