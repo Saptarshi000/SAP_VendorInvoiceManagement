@@ -93,7 +93,7 @@ sap.ui.define([
                 var oModel = this.getOwnerComponent().getModel();
                 oModel.setUseBatch(false);
 
-                oModel.read(`/po_headerSet('${po_num}')`, {
+                oModel.read(`/po_headerSet(VenderNo='',PoNo='${po_num}',key='')`, {
                     urlParameters: {
                         "$expand": "po_lineitemSet",
                     },
