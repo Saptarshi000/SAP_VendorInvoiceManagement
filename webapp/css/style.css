@@ -445,6 +445,9 @@
 .myInvFilterSecBtn{
   margin-left: 20px !important;
 }
+.myInvFilterSecResetBtn{
+  margin-left: 10px !important;
+}
 
 .myInvBtnFilter {
   margin-top: 25px !important;
