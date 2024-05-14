@@ -12,7 +12,7 @@
             <VBox>
                 <HBox class="homeVendorNameAlign">
                     <Text id="b1444" text="Vendor : " class="homeVendorName" />
-                    <Text id="vendNo" text="0017300001" />
+                    <Text id="vendNo" text="0017300002" />
                 </HBox>
 
                 <HBox width="100%">
@@ -197,12 +197,13 @@
                         </f:content>
                     </f:Card>
                 </HBox>
+
                 <HBox>
                     <VBox>
                         <HBox class="filterAreaSizing">
                             <VBox id="subVbox1153"
                                 class="sapUiTinyMarginBeginEnd inputPymt44 ">
-                                <Text id="a2" text="Portal No"></Text>
+                                <Text id="a2" text="Portal No."></Text>
                                 <Input id="RefN" class="" width="150%" maxLength="10" />
                             </VBox>
 
@@ -357,7 +358,7 @@
                                                 <Text
                                                     text="{invStatus>status}"
                                                 />
-                                                <Text
+                                                <!-- <Text
                                                     text="{invStatus>verified_dt}"
                                                 />
                                                 <Text
@@ -365,7 +366,13 @@
                                                 />
                                                 <Text
                                                     text="{invStatus>cleared_dt}"
-                                                />
+                                                /> -->
+                                                <DatePicker value="{invStatus>verified_dt}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <DatePicker value="{invStatus>blocked_dt}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <DatePicker value="{invStatus>cleared_dt}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
                                             </cells>
                                         </ColumnListItem>
                                     </items>

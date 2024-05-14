@@ -30,8 +30,6 @@
                                 <Input id="VIN" class="sapUiSmallMarginBegin inpWidth9"
                                     width="200%" maxLength="40"/>
                             </HBox>
-
-
                             <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="b1444" text="Invoice Date" />
                                 <DatePicker id="invDate" valueFormat="yyyyMMdd" class="sapUiSmallMarginBegin inpWidth3" />

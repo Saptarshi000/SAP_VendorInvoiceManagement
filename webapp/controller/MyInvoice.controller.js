@@ -13,7 +13,6 @@ sap.ui.define([
         return Controller.extend("sapvim.controller.MyInvoice", {
             onInit: function () {
                 let key = "S"
-
                 
                 this.getInvStatus(key) 
             },

@@ -1,32 +1,68 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (Controller, JSONModel, Filter, FilterOperator) {
         "use strict";
 
         return Controller.extend("sapvim.controller.Payment", {
             onInit: function () {
+               this.onclickTotDue();
+            },
+            onclickTotDue: function () {
+                let key = ""
                 this.byId("tableTotalDue").setVisible(true)
                 this.byId("tableOverDue").setVisible(false)
                 this.byId("tableDueWith").setVisible(false)
+                this.getInvPmnt(key)
             },
-            onclickTotDue:function(){
-                this.byId("tableTotalDue").setVisible(true)
-                this.byId("tableOverDue").setVisible(false)
-                this.byId("tableDueWith").setVisible(false)
-            },
-            onclickOvrDue:function(){
+            onclickOvrDue: function () {
+                let key = "o"
                 this.byId("tableTotalDue").setVisible(false)
                 this.byId("tableOverDue").setVisible(true)
                 this.byId("tableDueWith").setVisible(false)
+                this.getInvPmnt(key)
             },
-            onclickDue30Days:function(){
+            onclickDue30Days: function () {
+                let key = "w"
                 this.byId("tableTotalDue").setVisible(false)
                 this.byId("tableOverDue").setVisible(false)
                 this.byId("tableDueWith").setVisible(true)
+                this.getInvPmnt(key)
+            },
+            getInvPmnt: function (key) {
+                var that = this;
+                // var venId = that.byId("vendNo").getText();
+                var venId = "0017300002"
+
+                var oModel = this.getOwnerComponent().getModel();
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_dueheaderSet(Lifnr='${venId}',l_key='${key}')`, {
+                    urlParameters: {
+                        "$expand": "po_duelineitemSet",
+                    },
+                    success: function (oData) {
+                        console.log("Inv Pymnt")
+                        console.log(key)
+                        console.log(oData);
+
+                        var jModel = new JSONModel(oData.po_duelineitemSet);
+                        // // console.log(jModel)
+                        that.getView().setModel(jModel, "invPymt");
+
+                        // console.log()
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
             }
         });
     });

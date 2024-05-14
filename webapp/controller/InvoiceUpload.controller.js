@@ -274,11 +274,14 @@ sap.ui.define([
 
                 oModel.create("/po_headerSet", payload, {
                     success: function (oData, oResponse) {
-                       
+
+                        this.byId("poNo").setValue(null)
+                        this.byId("VIN").setValue(null)
+                        this.byId("invDate").setDateValue(null)
+                        this.byId("invDoc").setValue(null)
+
                         let p = JSON.parse(oResponse.headers['sap-message'])
-                        console.log(p)
                         MessageBox.success(`${p.message}`)
-                     
                     },
                     error: function (err) {
                         var rr = JSON.parse(err.responseText)

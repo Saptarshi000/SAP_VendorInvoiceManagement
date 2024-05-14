@@ -182,16 +182,14 @@
                                     class="table"
                                     id="tableTotalDue"
                                     backgroundDesign="Translucent"
+                                    items="{
+                                        path: 'invPymt>/results',
+                                        sorter: {
+                                            path: 'PortalNo'
+                                        }
+                                    }"
                                 >
                                     <columns>
-                                        <Column
-                                            id="_IDGenColumn1"
-                                        >
-                                            <Text
-                                                id="_IDGenText2"
-                                                text="Vendor"
-                                            />
-                                        </Column>
                                         <Column id="_IDGenColumn7">
                                             <Text
                                                 id="_IDGenText7"
@@ -206,12 +204,10 @@
                                         </Column>
                                         <Column
                                             id="_IDGenColumn3"
-                                            width="12%"
-                                            class="header">
+                                        >
                                             <Text
                                                 id="_IDGenText4"
-                                                text="Vendor Invoice Number"
-                                                class="header"
+                                                text="Vendor Inv No."
                                             />
                                         </Column>
                                         <Column>
@@ -219,9 +215,12 @@
                                                 text="Item ID"
                                             />
                                         </Column>
-                                        <Column>
+                                        <Column
+                                            width="12%"
+                                            class="header">
                                             <Text
                                                 text="Item Desc."
+                                                class="header"
                                             />
                                         </Column>
                                         <Column>
@@ -234,7 +233,7 @@
                                                 text="Amt."
                                             />
                                         </Column>
-                                        <Column id="_IDGenColumn4">
+                                        <!-- <Column id="_IDGenColumn4">
                                             <Text
                                                 text="Payment Cleared"
                                                 id="Payment_Cleared"
@@ -251,9 +250,60 @@
                                                 id="_IDGenText6"
                                                 text="Cleared Amount"
                                             />
-                                        </Column>
+                                        </Column> -->
 
                                     </columns>
+                                    <items>
+                                        <ColumnListItem id="_IDGenColumnListItem1">
+                                            <cells>
+
+                                                <Text
+                                                    text="{invPymt>PortalNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>PoNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>InvoiceNo}"
+                                                />
+
+                                                <Text
+                                                    text="invPymt>"
+                                                />
+                                                <Text
+                                                    text="{invPymt>ItemDesc}"
+                                                />
+                                                <DatePicker value="{invPymt>baselin}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <Text
+                                                    text="{invPymt>Netpr}"
+                                                />
+                                                <!-- <Text
+                                                    text="{invPymt>}"
+                                                /> -->
+                                                <!-- <Text
+                                                    text="{invPymt>verified_dt}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>blocked_dt}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>cleared_dt}"
+                                                /> -->
+                                                <!-- <Text
+                                                    text="{invPymt>}"
+                                                />
+                                                <DatePicker value="{invPymt>}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <DatePicker value="{invPymt>}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+
+                                                <Text
+                                                    text="{invPymt>}"
+                                                /> -->
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
                                 </Table>
 
                                 <!-- OVERDUE TABLE -->
@@ -263,13 +313,14 @@
                                     class="table"
                                     id="tableOverDue"
                                     backgroundDesign="Translucent"
+                                    items="{
+                                        path: 'invPymt>/results',
+                                        sorter: {
+                                            path: 'PortalNo'
+                                        }
+                                    }"
                                 >
                                     <columns>
-                                        <Column>
-                                            <Text
-                                                text="Vendor"
-                                            />
-                                        </Column>
                                         <Column>
                                             <Text
                                                 text="Portal No"
@@ -315,23 +366,60 @@
                                         </Column>
 
                                     </columns>
+                                    <items>
+                                        <ColumnListItem id="_IDGenColumnListItem12">
+                                            <cells>
+
+                                                <Text
+                                                    text="{invPymt>PortalNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>PoNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>InvoiceNo}"
+                                                />
+                                                <Text
+                                                    text="invPymt>"
+                                                />
+                                                <Text
+                                                    text="{invPymt>ItemDesc}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>Netpr}"
+                                                />
+                                                <DatePicker value="{invPymt>baselin}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <Text
+                                                    text="{invPymt>OvDue}"
+                                                />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
                                 </Table>
 
 
-                                <!-- Due with Table -->
+                                <!-- Due with 30 Table -->
                                 <Table
                                     alternateRowColors="true"
                                     width="auto"
                                     class="table"
                                     id="tableDueWith"
                                     backgroundDesign="Translucent"
+                                    items="{
+                                        path: 'invPymt>/results',
+                                        sorter: {
+                                            path: 'PortalNo'
+                                        }
+                                    }"
                                 >
+                                
                                     <columns>
-                                        <Column>
+                                        <!-- <Column>
                                             <Text
                                                 text="Vendor"
                                             />
-                                        </Column>
+                                        </Column> -->
                                         <Column>
                                             <Text
                                                 text="Portal No"
@@ -377,6 +465,36 @@
                                         </Column>
 
                                     </columns>
+                                    <items>
+                                        <ColumnListItem id="_IDGenColumnListItem13">
+                                            <cells>
+
+                                                <Text
+                                                    text="{invPymt>PortalNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>PoNo}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>InvoiceNo}"
+                                                />
+                                                <Text
+                                                    text="invPymt>"
+                                                />
+                                                <Text
+                                                    text="{invPymt>ItemDesc}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>Netpr}"
+                                                />
+                                                <DatePicker value="{invPymt>baselin}"
+                                                    valueFormat="yyyyMMdd" editable="false" />
+                                                <Text
+                                                    text="{invPymt>DueIn}"
+                                                />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
                                 </Table>
                             </VBox>
                         </FlexBox>
