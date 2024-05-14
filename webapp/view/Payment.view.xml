@@ -215,6 +215,11 @@
                                                 text="Item ID"
                                             />
                                         </Column>
+                                        <Column>
+                                            <Text
+                                                text="Item"
+                                            />
+                                        </Column>
                                         <Column
                                             width="12%"
                                             class="header">
@@ -268,7 +273,10 @@
                                                 />
 
                                                 <Text
-                                                    text="invPymt>"
+                                                    text="{invPymt>Ebelp}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>Item}"
                                                 />
                                                 <Text
                                                     text="{invPymt>ItemDesc}"
@@ -346,6 +354,11 @@
                                         </Column>
                                         <Column>
                                             <Text
+                                                text="Item"
+                                            />
+                                        </Column>
+                                        <Column>
+                                            <Text
                                                 text="Item Desc."
                                             />
                                         </Column>
@@ -380,7 +393,10 @@
                                                     text="{invPymt>InvoiceNo}"
                                                 />
                                                 <Text
-                                                    text="invPymt>"
+                                                    text="{invPymt>Ebelp}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>Item}"
                                                 />
                                                 <Text
                                                     text="{invPymt>ItemDesc}"
@@ -445,6 +461,11 @@
                                         </Column>
                                         <Column>
                                             <Text
+                                                text="Item"
+                                            />
+                                        </Column>
+                                        <Column>
+                                            <Text
                                                 text="Item Desc."
                                             />
                                         </Column>
@@ -479,7 +500,10 @@
                                                     text="{invPymt>InvoiceNo}"
                                                 />
                                                 <Text
-                                                    text="invPymt>"
+                                                    text="{invPymt>Ebelp}"
+                                                />
+                                                <Text
+                                                    text="{invPymt>Item}"
                                                 />
                                                 <Text
                                                     text="{invPymt>ItemDesc}"

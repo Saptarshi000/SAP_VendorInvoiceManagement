@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel"
+    "sap/ui/model/json/JSONModel",
+    "sap/ui/core/BusyIndicator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel) {
+    function (Controller, JSONModel, BusyIndicator) {
         "use strict";
 
         return Controller.extend("sapvim.controller.Home", {
@@ -108,7 +109,7 @@ sap.ui.define([
 
             },
             getDataValue: function (venId) {
-                // BusyIndicator.show();
+                BusyIndicator.show();
                 var that = this;
                 var oModel = this.getOwnerComponent().getModel();
                 // console.log(venId);
@@ -122,6 +123,9 @@ sap.ui.define([
                         var jModel = new JSONModel(oData);
                         that.getView().setModel(jModel, "homeValue")
 
+                        setTimeout(() => {
+                            BusyIndicator.hide();
+                          }, 2000);
                     },
                     error: function (oError) {
                         console.log("Error");

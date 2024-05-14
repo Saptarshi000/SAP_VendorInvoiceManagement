@@ -2,12 +2,13 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
+	"sap/ui/model/FilterOperator",
+    "sap/ui/core/BusyIndicator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Filter, FilterOperator) {
+    function (Controller, JSONModel, Filter, FilterOperator, BusyIndicator) {
         "use strict";
 
         return Controller.extend("sapvim.controller.MyInvoice", {
@@ -17,6 +18,7 @@ sap.ui.define([
                 this.getInvStatus(key) 
             },
             getInvStatus: function (key) {
+                BusyIndicator.show();
                 var that = this;
                 var venId = that.byId("vendNo").getText();
                 
@@ -40,7 +42,9 @@ sap.ui.define([
                         // // console.log(jModel)
                         that.getView().setModel(jModel, "invStatus");
 
-                        // console.log()
+                        setTimeout(() => {
+                            BusyIndicator.hide();
+                          }, 2000);
                     },
                     error: function (oError) {
                         console.log("Error");

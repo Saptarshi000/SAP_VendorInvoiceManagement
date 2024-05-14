@@ -17,6 +17,7 @@
                                 <Text id="a1444" text="Vendor No" />
                                 <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
                                     value="0017300001" editable="false" maxLength="10"/>
+                                    <!-- 0017300001 -->
                             </HBox>
                             <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1" text="PO. No"></Text>

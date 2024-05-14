@@ -12,12 +12,13 @@ sap.ui.define([
     "sap/m/Button",
     "sap/m/ButtonType",
     "sap/ui/model/json/JSONModel",
-    "sap/m/MessageBox"
+    "sap/m/MessageBox",
+    "sap/ui/core/BusyIndicator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox, UI5Date, ColumnListItem, Input, StandardListItem, PDFViewer, List, ActionListItem, Dialog, Button, ButtonType, JSONModel) {
+    function (Controller, MessageBox, UI5Date, ColumnListItem, Input, StandardListItem, PDFViewer, List, ActionListItem, Dialog, Button, ButtonType, JSONModel, BusyIndicator) {
         "use strict";
 
         return Controller.extend("sapvim.controller.InvoiceUpload", {
@@ -230,6 +231,7 @@ sap.ui.define([
                 // this.totalAmt();
             },
             onPressubmit: function () {
+                var that = this
                 var oTable_Selected = this.getView().byId("tableObj").getSelectedItems();
 
                 var jsonArr = [];
@@ -275,10 +277,10 @@ sap.ui.define([
                 oModel.create("/po_headerSet", payload, {
                     success: function (oData, oResponse) {
 
-                        this.byId("poNo").setValue(null)
-                        this.byId("VIN").setValue(null)
-                        this.byId("invDate").setDateValue(null)
-                        this.byId("invDoc").setValue(null)
+                        that.byId("poNo").setValue(null)
+                        that.byId("VIN").setValue(null)
+                        that.byId("invDate").setDateValue(null)
+                        that.byId("invDoc").setValue(null)
 
                         let p = JSON.parse(oResponse.headers['sap-message'])
                         MessageBox.success(`${p.message}`)
