@@ -6,13 +6,14 @@
     xmlns="sap.m"
     xmlns:unified="sap.ui.unified"
 >
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>myInv}" titleAlignment="Center">
         <content>
             <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <VBox>
                 <HBox class="homeVendorNameAlign">
                     <Text id="b1444" text="Vendor : " class="homeVendorName" />
-                    <Text id="vendNo" text="0017300002" />
+                    <Text id="vendNo" text="" />
+                    <!-- 0017300002 -->
                 </HBox>
 
                 <HBox width="100%">

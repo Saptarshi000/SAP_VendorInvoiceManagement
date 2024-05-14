@@ -8,14 +8,15 @@
     xmlns:viz="sap.viz.ui5.controls"
     xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
     xmlns:viz.data="sap.viz.ui5.data">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" titleAlignment="Center">
         <content>
             <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <HBox>
                 <VBox width="25%">
                     <HBox class="homeVendorNameAlign">
                         <Text id="b1444" text="Vendor : " class="homeVendorName" />
-                        <Text id="_IDGenText2" text="17300002" />
+                        <Text id="_IDGenText2" text="" />
+                        <!-- 17300002 -->
                     </HBox>
                     
                     <f:Card

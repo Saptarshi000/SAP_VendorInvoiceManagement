@@ -34,6 +34,14 @@ server:
             url: http://202.153.35.211:50000/
             client: '100'
             destination: S4H
+          - path: /sap
+            url: http://202.153.35.211:50000/
+            client: '100'
+            destination: S4H
+          - path: /sap/opu/odata/sap/ZVENDOR_ONBOARD_SRV
+            url: http://202.153.35.211:50000/
+            client: '100'
+            destination: S4H
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:

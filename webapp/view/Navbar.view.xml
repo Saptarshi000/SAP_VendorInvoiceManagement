@@ -39,6 +39,13 @@
                 icon="sap-icon://bbyd-dashboard"
                 press="onClickReport"
             />
+            <Button
+                class="navbarSignOut"
+                id='SignOut'
+                text='Sign Out'
+                icon="sap-icon://log"
+                press="onClickSignOut"
+            />
 
         </contentLeft>
     </Bar>

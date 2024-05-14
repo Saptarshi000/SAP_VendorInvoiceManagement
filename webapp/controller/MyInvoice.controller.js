@@ -14,6 +14,15 @@ sap.ui.define([
         return Controller.extend("sapvim.controller.MyInvoice", {
             onInit: function () {
                 let key = "S"
+
+                if(localStorage.getItem("userData")){
+                    let data = JSON.parse( localStorage.getItem("userData") ) 
+                    // console.log(data.Username)
+                    this.byId('vendNo').setText(data.Username);
+                }else{
+                    var routerObj = this.getOwnerComponent().getRouter();
+                    routerObj.navTo("Screen7");
+                }
                 
                 this.getInvStatus(key)
                 

@@ -11,6 +11,16 @@ sap.ui.define([
 
         return Controller.extend("sapvim.controller.Home", {
             onInit: function () {
+
+                if(localStorage.getItem("userData")){
+                    let data = JSON.parse( localStorage.getItem("userData") ) 
+                    // console.log(data.Username)
+                    this.byId('_IDGenText2').setText(data.Username);
+                }else{
+                    var routerObj = this.getOwnerComponent().getRouter();
+                    routerObj.navTo("Screen7");
+                }
+
                 var a = this.byId('_IDGenText2').getText();
 
                 this.getDataValue(a);

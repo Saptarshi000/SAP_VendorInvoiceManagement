@@ -4,7 +4,7 @@
     xmlns:cards="sap.f.cards"
     displayBlock="true"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>invUpload}">
+    <Page id="page" title="{i18n>invUpload}" titleAlignment="Center">
 
         <content>
             <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
@@ -16,7 +16,7 @@
                             <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1444" text="Vendor No" />
                                 <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
-                                    value="0017300001" editable="false" maxLength="10"/>
+                                    value="" editable="false" maxLength="10"/>
                                     <!-- 0017300001 -->
                             </HBox>
                             <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">

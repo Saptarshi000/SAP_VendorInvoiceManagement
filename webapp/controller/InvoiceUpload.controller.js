@@ -24,6 +24,15 @@ sap.ui.define([
         return Controller.extend("sapvim.controller.InvoiceUpload", {
             onInit: function () {
                 this.byId("invDate").setMaxDate(new Date());
+
+                if(localStorage.getItem("userData")){
+                    let data = JSON.parse( localStorage.getItem("userData") ) 
+                    // console.log(data.Username)
+                    this.byId('vendNo').setValue(data.Username);
+                }else{
+                    var routerObj = this.getOwnerComponent().getRouter();
+                    routerObj.navTo("Screen7");
+                }
             },
             getAllPO: function () {
                 var that = this;
@@ -39,8 +48,6 @@ sap.ui.define([
                     success: function (oData) {
                         console.log(oData.po_listSet.results);
                         var dataSetDetails = oData.po_listSet.results
-                        // var jModel = new JSONModel(oData);
-                        // that.getView().setModel(jModel, "homeValue")
 
                         // Create a List control to display po 
                         var oList = new sap.m.List({
@@ -281,6 +288,7 @@ sap.ui.define([
                         that.byId("VIN").setValue(null)
                         that.byId("invDate").setDateValue(null)
                         that.byId("invDoc").setValue(null)
+                        that.getView().setModel(new JSONModel([]), "poLineItems");
 
                         let p = JSON.parse(oResponse.headers['sap-message'])
                         MessageBox.success(`${p.message}`)

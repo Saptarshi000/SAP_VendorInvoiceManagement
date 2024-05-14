@@ -5,7 +5,7 @@
     xmlns:card="sap.f.cards"
     xmlns="sap.m"
     xmlns:unified="sap.ui.unified">
-    <Page id="page" title="{i18n>InvPayment}">
+    <Page id="page" title="{i18n>InvPayment}" titleAlignment="Center">
         <!-- <content >
             <Text text="njhgfcdx"></Text>
         </content> -->

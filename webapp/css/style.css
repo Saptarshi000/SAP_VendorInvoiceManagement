@@ -479,3 +479,44 @@
   margin-left: 17px !important;
   margin-top: 15px !important;
 }
+
+
+/* Login Page */
+.backgroundPage {
+  background-image: url('../assets/ds.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.loginusernameStyle{
+  margin-bottom: 5px;
+}
+
+.LoginSubmitBtn{
+  margin-left: 40%;
+  margin-top: 20px;
+  margin-bottom: 7px;
+  width: 100px;
+}
+
+.LoginDetailsBoxStyles{
+  margin: 4px;
+  padding: 3px;
+}
+
+.LogincardStyles1{
+  margin-left: 410px;
+  margin-top: 95px;
+}
+
+/* Login Page */
+
+.navbarSignOut{
+  margin-left: 630px !important;
+  margin-right: 0px !important;
+  background-color: rgb(255, 182, 182);
+  color: white !important;
+  border-radius: 10px !important;
+  
+}

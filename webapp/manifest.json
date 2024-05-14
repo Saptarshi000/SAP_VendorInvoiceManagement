@@ -21,7 +21,16 @@
                 "type": "OData",
                 "settings": {
                     "annotations": [],
-                    "localUri": "localService/metadata.xml",
+                    "localUri": "localService/ZAP_PO_SRV/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZVENDOR_ONBOARD_SRV": {
+                "uri": "/sap/opu/odata/sap/ZVENDOR_ONBOARD_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZVENDOR_ONBOARD_SRV/metadata.xml",
                     "odataVersion": "2.0"
                 }
             }
@@ -80,6 +89,18 @@
                         "sap-value-list": "none"
                     }
                 }
+            },
+            "ZVENDOR_ONBOARD_SRV": {
+                "dataSource": "ZVENDOR_ONBOARD_SRV",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
             }
         },
         "resources": {
@@ -102,7 +123,7 @@
             "routes": [
                 {
                     "name": "Screen1",
-                    "pattern": "",
+                    "pattern": "home",
                     "target": [
                         "Screen1"
                     ]
@@ -141,6 +162,13 @@
                     "target": [
                         "Screen6"
                     ]
+                },
+                {
+                    "name": "Screen7",
+                    "pattern": "",
+                    "target": [
+                        "Screen7"
+                    ]
                 }
             ],
             "targets": {
@@ -167,6 +195,10 @@
                 "Screen6": {
                     "viewId": "Screen6",
                     "viewName": ""
+                },
+                "Screen7": {
+                    "viewId": "Screen7",
+                    "viewName": "Login"
                 }
             }
         },
