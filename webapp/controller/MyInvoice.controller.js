@@ -15,7 +15,35 @@ sap.ui.define([
             onInit: function () {
                 let key = "S"
                 
-                this.getInvStatus(key) 
+                this.getInvStatus(key)
+                
+                this.getCountDatas(this.byId("vendNo").getText())
+
+            },
+            getCountDatas: function (venId) {
+                BusyIndicator.show();
+                var that = this;
+                var oModel = this.getOwnerComponent().getModel();
+                // console.log(venId);
+                console.log(oModel)
+
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_totSet('${venId}')`, {
+                    success: function (oData) {
+                        console.log("countData",oData);
+                        var jModel = new JSONModel(oData);
+                        that.getView().setModel(jModel, "countData")
+
+                        setTimeout(() => {
+                            BusyIndicator.hide();
+                          }, 2000);
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
             },
             getInvStatus: function (key) {
                 BusyIndicator.show();

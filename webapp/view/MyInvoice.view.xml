@@ -51,7 +51,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency1"
                                             class="avatarStyles"
-                                            stringValue="80"
+                                            stringValue="{countData>/submited}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -96,7 +96,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency12"
                                             class="avatarStyles"
-                                            stringValue="80"
+                                            stringValue="{countData>/verified}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -141,7 +141,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency13"
                                             class="avatarStyles"
-                                            stringValue="80"
+                                            stringValue="{countData>/blocked}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -186,7 +186,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency14"
                                             class="avatarStyles"
-                                            stringValue="80"
+                                            stringValue="{countData>/cleared}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />

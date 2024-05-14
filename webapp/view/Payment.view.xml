@@ -56,7 +56,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency1"
                                             class="avatarStyles"
-                                            stringValue="8000000"
+                                            stringValue="{countData>/total_due}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -101,7 +101,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency12"
                                             class="avatarStyles"
-                                            stringValue="123000"
+                                            stringValue="{countData>/over_due}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -146,7 +146,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency13"
                                             class="avatarStyles"
-                                            stringValue="3488899"
+                                            stringValue="{countData>/due_30}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />

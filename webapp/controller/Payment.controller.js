@@ -13,7 +13,35 @@ sap.ui.define([
 
         return Controller.extend("sapvim.controller.Payment", {
             onInit: function () {
+                var venId = "0017300002"
+
                this.onclickTotDue();
+               this.getCountDatas(venId)
+            },
+            getCountDatas: function (venId) {
+                BusyIndicator.show();
+                var that = this;
+                var oModel = this.getOwnerComponent().getModel();
+                // console.log(venId);
+                console.log(oModel)
+
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_totSet('${venId}')`, {
+                    success: function (oData) {
+                        console.log("countData",oData);
+                        var jModel = new JSONModel(oData);
+                        that.getView().setModel(jModel, "countData")
+
+                        setTimeout(() => {
+                            BusyIndicator.hide();
+                          }, 1000);
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
             },
             onclickTotDue: function () {
                 let key = ""
@@ -39,7 +67,6 @@ sap.ui.define([
             getInvPmnt: function (key) {
                 BusyIndicator.show();
                 var that = this;
-                // var venId = that.byId("vendNo").getText();
                 var venId = "0017300002"
 
                 var oModel = this.getOwnerComponent().getModel();
