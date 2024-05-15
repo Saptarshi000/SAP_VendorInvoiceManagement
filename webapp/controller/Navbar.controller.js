@@ -34,6 +34,25 @@ sap.ui.define([
             onClickReport: function () {
                 var routerObj = this.getOwnerComponent().getRouter();
                 routerObj.navTo("");
+            },
+            onClickSignOut: function () {
+                console.log( JSON.parse(localStorage.getItem("userData")).Message )
+
+                if (localStorage.getItem("userData")) {
+                    if( JSON.parse(localStorage.getItem("userData")).Message === "SUCESS"){
+                        localStorage.removeItem("userData");
+                        localStorage.clear();
+    
+                        location.reload();
+                        // Routing to main page
+                        var routerObj = that.getOwnerComponent().getRouter();
+                        routerObj.navTo("Screen7");
+                    }else return
+                    
+                }else{
+                    var routerObj = that.getOwnerComponent().getRouter();
+                    routerObj.navTo("Screen7");
+                }
             }
         });
     });
