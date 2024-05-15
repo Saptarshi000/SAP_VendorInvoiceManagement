@@ -1,11 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
+    "sap/ui/core/BusyIndicator"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox) {
+    function (Controller, MessageBox, BusyIndicator) {
         "use strict";
 
         return Controller.extend("sapvim.controller.Login", {
@@ -14,6 +15,7 @@ sap.ui.define([
                 // location.reload();
             },
             getDataValue: function () {
+                BusyIndicator.show();
                 var that = this;
 
                 let vId = this.byId("login").getValue()
@@ -34,6 +36,7 @@ sap.ui.define([
 
                         if (oData.Message === "SUCESS") {
                             if (localStorage.getItem("userData")) {
+                                BusyIndicator.hide();
                                 var routerObj = that.getOwnerComponent().getRouter();
                                 routerObj.navTo("Screen1");
                             } else {
@@ -41,6 +44,7 @@ sap.ui.define([
                                 that.byId("password").setValue(null)
 
                                 var routerObj = that.getOwnerComponent().getRouter();
+                                BusyIndicator.hide();
                                 routerObj.navTo("Screen1");
                             }
 

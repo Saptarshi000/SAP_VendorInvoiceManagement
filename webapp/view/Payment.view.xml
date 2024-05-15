@@ -13,6 +13,11 @@
         <content>
             <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
             <VBox>
+                <HBox class="homeVendorNameAlign">
+                    <Text id="b1444" text="Vendor : " class="homeVendorName" />
+                    <Text id="vendNo" text="" />
+                    <!-- 0017300002 -->
+                </HBox>
                 <HBox width="100%">
 
                     <f:Card

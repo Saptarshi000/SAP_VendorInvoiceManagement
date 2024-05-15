@@ -21,7 +21,7 @@ sap.ui.define([
                     let data = JSON.parse(localStorage.getItem("userData"))
                     var venId = data.Username
                     this.v = data.Username
-                    // this.byId('_IDGenText2').setText(data.Username);
+                    this.byId('vendNo').setText(data.Username);
                 } else {
                     var routerObj = this.getOwnerComponent().getRouter();
                     routerObj.navTo("Screen7");

@@ -20,7 +20,7 @@
                 <f:content>
                     <VBox id="_IDGenVBox1"
                     >
-                        <Image id="_IDGenImage1" src="../images/SAP_2011_logo.svg.png" width="200px"
+                        <Image id="_IDGenImage1" src="https://media.glassdoor.com/sql/717958/tecnics-squarelogo-1504621550114.png" width="200px" height="120px"
                             class="logoclass" />
 
                         <HBox
