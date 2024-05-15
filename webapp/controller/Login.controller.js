@@ -12,7 +12,6 @@ sap.ui.define([
             onInit: function () {
                 // this.getDataValue()
                 // location.reload();
-
             },
             getDataValue: function () {
                 var that = this;

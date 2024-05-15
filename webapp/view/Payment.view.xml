@@ -163,13 +163,13 @@
                         <HBox class="filterAreaSizing">
                             <VBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
                                 <Text id="a1" text="Portal No"></Text>
-                                <Input id="RefNo" class="" width="150%" />
+                                <Input id="filterDataSource" class="" width="150%" />
                             </VBox>
                             <HBox class="myInvBtnFilter myInvFilterSec">
                                 <Button
                                     icon="sap-icon://search"
                                     text="Search"
-                                    press="onPress"
+                                    press="onFilterInvoice"
                                 />
                             </HBox>
                         </HBox>
@@ -413,7 +413,6 @@
                                         </ColumnListItem>
                                     </items>
                                 </Table>
-
 
                                 <!-- Due with 30 Table -->
                                 <Table

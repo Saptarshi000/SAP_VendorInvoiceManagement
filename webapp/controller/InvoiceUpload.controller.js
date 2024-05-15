@@ -241,63 +241,75 @@ sap.ui.define([
                 var that = this
                 var oTable_Selected = this.getView().byId("tableObj").getSelectedItems();
 
+                // console.log("Selected Row or not",oTable_Selected.length)
+                
                 var jsonArr = [];
                 var sumAmt = 0;
 
-                for (let selectedItem of oTable_Selected) {
-                    sumAmt = sumAmt + parseFloat(selectedItem.getCells()[8].getText())
-                    // console.log( selectedItem.getCells()[8].getText() )
-                    jsonArr.push({
+                if(oTable_Selected.length > 0){
+
+                    for (let selectedItem of oTable_Selected) {
+                        sumAmt = sumAmt + parseFloat(selectedItem.getCells()[8].getText())
+                        // console.log( selectedItem.getCells()[8].getText() )
+                        jsonArr.push({
+                            "PoNo": this.byId("poNo").getValue(),
+                            "PortalNo": "",
+                            "LineNo": selectedItem.getCells()[0].getText(),
+                            "Item": selectedItem.getCells()[1].getText(),
+                            "ItemDesc": selectedItem.getCells()[2].getText(),
+                            "OrderQuantity": selectedItem.getCells()[3].getText(),
+                            "DeliverQuantity": selectedItem.getCells()[4].getText(),
+                            "InvoiceQty": selectedItem.getCells()[5].getValue(),
+                            "Taxcode": selectedItem.getCells()[6].getText(),
+                            "Taxamt": "0.000",
+                            "Netpr": selectedItem.getCells()[7].getText(),
+                            "Netwr": selectedItem.getCells()[8].getText(),
+                            "Uom": ""
+                        })
+                    }
+    
+                    let payload = {
+                        "VenderNo": this.byId("vendNo").getValue(),
                         "PoNo": this.byId("poNo").getValue(),
                         "PortalNo": "",
-                        "LineNo": selectedItem.getCells()[0].getText(),
-                        "Item": selectedItem.getCells()[1].getText(),
-                        "ItemDesc": selectedItem.getCells()[2].getText(),
-                        "OrderQuantity": selectedItem.getCells()[3].getText(),
-                        "DeliverQuantity": selectedItem.getCells()[4].getText(),
-                        "InvoiceQty": selectedItem.getCells()[5].getValue(),
-                        "Taxcode": selectedItem.getCells()[6].getText(),
-                        "Taxamt": "0.000",
-                        "Netpr": selectedItem.getCells()[7].getText(),
-                        "Netwr": selectedItem.getCells()[8].getText(),
-                        "Uom": ""
+                        "InvoiceNo": this.byId("VIN").getValue(),
+                        "InvoiceDate": this.byId("invDate").getValue(),
+                        "Email": this.byId("email").getValue(),
+                        "TotalSubAmt": sumAmt.toString(),
+                        "po_lineitemSet": {
+                            "results": jsonArr
+                        }
+                    }
+                    // console.log(payload)
+    
+                    var oModel = this.getOwnerComponent().getModel();
+                    oModel.setUseBatch(false);
+    
+                    oModel.create("/po_headerSet", payload, {
+                        success: function (oData, oResponse) {
+    
+                            that.byId("poNo").setValue(null)
+                            that.byId("VIN").setValue(null)
+                            that.byId("invDate").setDateValue(null)
+                            that.byId("invDoc").setValue(null)
+                            that.getView().setModel(new JSONModel([]), "poLineItems");
+    
+                            let p = JSON.parse(oResponse.headers['sap-message'])
+                            MessageBox.success(`${p.message}`)
+                        },
+                        error: function (err) {
+                            var rr = JSON.parse(err.responseText)
+                            MessageBox.error(rr.error.message.value);
+                        }
                     })
+                }else{
+                    MessageBox.error("Please select the line items to proceed")
                 }
 
-                let payload = {
-                    "VenderNo": this.byId("vendNo").getValue(),
-                    "PoNo": this.byId("poNo").getValue(),
-                    "PortalNo": "",
-                    "InvoiceNo": this.byId("VIN").getValue(),
-                    "InvoiceDate": this.byId("invDate").getValue(),
-                    "Email": this.byId("email").getValue(),
-                    "TotalSubAmt": sumAmt.toString(),
-                    "po_lineitemSet": {
-                        "results": jsonArr
-                    }
-                }
-                console.log(payload)
 
-                var oModel = this.getOwnerComponent().getModel();
-                oModel.setUseBatch(false);
+                
 
-                oModel.create("/po_headerSet", payload, {
-                    success: function (oData, oResponse) {
-
-                        that.byId("poNo").setValue(null)
-                        that.byId("VIN").setValue(null)
-                        that.byId("invDate").setDateValue(null)
-                        that.byId("invDoc").setValue(null)
-                        that.getView().setModel(new JSONModel([]), "poLineItems");
-
-                        let p = JSON.parse(oResponse.headers['sap-message'])
-                        MessageBox.success(`${p.message}`)
-                    },
-                    error: function (err) {
-                        var rr = JSON.parse(err.responseText)
-                        MessageBox.error(rr.error.message.value);
-                    }
-                })
+                
 
             }
         });

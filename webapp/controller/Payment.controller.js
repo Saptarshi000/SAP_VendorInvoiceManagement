@@ -12,6 +12,7 @@ sap.ui.define([
         "use strict";
 
        const v = "";
+       var selectedTable = "";
 
         return Controller.extend("sapvim.controller.Payment", {
             onInit: function () {
@@ -57,6 +58,7 @@ sap.ui.define([
             },
             onclickTotDue: function () {
                 let key = ""
+                this.selectedTable=""
                 this.byId("tableTotalDue").setVisible(true)
                 this.byId("tableOverDue").setVisible(false)
                 this.byId("tableDueWith").setVisible(false)
@@ -64,6 +66,8 @@ sap.ui.define([
             },
             onclickOvrDue: function () {
                 let key = "o"
+                this.selectedTable="o"
+
                 this.byId("tableTotalDue").setVisible(false)
                 this.byId("tableOverDue").setVisible(true)
                 this.byId("tableDueWith").setVisible(false)
@@ -72,6 +76,8 @@ sap.ui.define([
             },
             onclickDue30Days: function () {
                 let key = "w"
+                this.selectedTable="w"
+
                 this.byId("tableTotalDue").setVisible(false)
                 this.byId("tableOverDue").setVisible(false)
                 this.byId("tableDueWith").setVisible(true)
@@ -109,6 +115,30 @@ sap.ui.define([
                         console.log(oError)
                     }
                 })
+            },
+            onFilterInvoice: function(){
+                var aFilter = [];
+                var oList ;
+
+                var sQuery = this.byId("filterDataSource").getValue()
+
+                aFilter.push( new Filter("PortalNo", FilterOperator.Contains, sQuery));
+                
+                if(this.selectedTable === ""){
+                    oList = this.byId("tableTotalDue");
+                }
+                else if(this.selectedTable === "o"){
+                    oList = this.byId("tableOverDue");
+                }
+                else if(this.selectedTable === "w"){
+                    oList = this.byId("tableDueWith");
+                }
+                // Filter Binding
+                var oBinding = oList.getBinding("items");
+                oBinding.filter(aFilter);
+
+                // Reset Filters
+                this.byId("filterDataSource").setValue(null)
             }
         });
     });
