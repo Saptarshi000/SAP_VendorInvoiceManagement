@@ -52,6 +52,7 @@ sap.ui.define([
                             MessageBox.error(oData.Message);
                             // console.log(oData.Message)
                             that.byId("password").setValue(null)
+                            BusyIndicator.hide();
                         }
 
 
@@ -60,6 +61,7 @@ sap.ui.define([
                         console.log("Error");
                         console.log(oError)
                         that.byId("password").setValue(null)
+                        BusyIndicator.hide();
                     }
                 })
             }
