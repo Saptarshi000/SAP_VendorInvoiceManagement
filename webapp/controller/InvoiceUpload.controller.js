@@ -140,6 +140,7 @@ sap.ui.define([
                 })
             },
             handleChangeQty: function (oEvent) {
+                var totalAmt = 0;
                 var aItems = this.byId("tableObj").getItems()
                 for (let oItem of aItems) {
                     let oText = oItem.getAggregation("cells")[7].getProperty("text")
@@ -152,7 +153,10 @@ sap.ui.define([
 
                     var ooText = oItem.getCells()[8];
                     ooText.setText(tot);
+
+                    totalAmt += tot;
                 }
+                this.byId("Amt").setValue(totalAmt);
             },
             handleFileChange: function (oEvent) {
 

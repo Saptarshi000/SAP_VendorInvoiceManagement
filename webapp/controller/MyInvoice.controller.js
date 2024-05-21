@@ -41,7 +41,13 @@ sap.ui.define([
                 oModel.read(`/po_totSet('${venId}')`, {
                     success: function (oData) {
                         console.log("countData",oData);
+                        oData["blocked"] = oData["blocked"].replaceAll(" ", "");
+                        oData["cleared"] = oData["cleared"].replaceAll(" ", "");
+                        oData["submited"] = oData["submited"].replaceAll(" ", "");
+                        oData["verified"] = oData["verified"].replaceAll(" ", "");
+                        console.log(oData);
                         var jModel = new JSONModel(oData);
+                        // console.log(jModel);
                         that.getView().setModel(jModel, "countData")
 
                         setTimeout(() => {
