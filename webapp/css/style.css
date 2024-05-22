@@ -520,3 +520,12 @@
   border-radius: 10px !important;
   
 }
+
+.valueCount{
+  margin-top: 50px !important;
+  /* text-align: end !important; */
+}
+.valueCount1{
+  margin-left: 0px !important;
+  /* text-align: end !important; */
+}

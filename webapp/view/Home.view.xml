@@ -15,15 +15,15 @@
                 <VBox width="25%">
                     <HBox class="homeVendorNameAlign">
                         <Text id="b1444" text="Vendor : " class="homeVendorName" />
-                        <Text id="_IDGenText2" text="" />
+                        <Text id="venID" text="" />
                         <!-- 17300002 -->
                     </HBox>
-                    
+
                     <f:Card
                         id="_IDGenCard1"
                         class="cardStyles"
                         width="100%"
-                        height="130px">
+                        height="85px">
                         <f:content>
                             <HBox id="_IDGenHBox2">
                                 <HBox
@@ -33,7 +33,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar1"
-                                        displaySize="XL"
+                                        displaySize="L"
                                         backgroundColor="Accent1"
                                         displayShape="Square"
                                         src="sap-icon://batch-payments"
@@ -53,11 +53,65 @@
                                             id="_IDGenCurrency1"
                                             class="avatarStyles"
                                             stringValue="{homeValue>/tot}"
-                                            
                                             useSymbol="false"
                                         />
 
                                     </VBox>
+                                    <ObjectStatus
+                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            text="100000"
+                                            />
+                                </HBox>
+                            </HBox>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card
+                        class="cardStyles"
+                        width="100%"
+                        height="85px">
+                        <f:content>
+                            <HBox id="_IDGenHBox22333">
+                                <HBox
+                                    id="_IDGenHBox333"
+                                    alignItems="Start"
+                                    class="avatarStyles"
+                                >
+                                    <Avatar
+                                        id="_IDGenAvatar1222"
+                                        displaySize="L"
+                                        backgroundColor="Accent9"
+                                        displayShape="Square"
+                                        src="sap-icon://batch-payments"
+                                    />
+                                </HBox>
+                                <HBox
+                                    id="_IDGenHBox4222"
+                                    class="detailsBoxStyles"
+                                    items="80">
+                                    <VBox id="_IDGenVBox1222">
+                                        <Title
+                                            id="_IDGenText1222"
+                                            text="Open PO Balance"
+                                        />
+
+                                        <unified:Currency
+                                            id="_IDGenCurrency12222"
+                                            class="avatarStyles"
+                                            stringValue="{homeValue>/tot}"
+                                            useSymbol="false"
+                                        />
+                                        <!-- <HBox class="sapUiTinyMargin sapUiSmallMarginEnd">
+                                            <Text text="100000" class=""/>
+                                        </HBox> -->
+                                        
+
+
+                                    </VBox>
+                                    <ObjectStatus
+                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            text="100000"
+                                            />
                                 </HBox>
                             </HBox>
                         </f:content>
@@ -67,7 +121,7 @@
                         id="_IDGenCard2"
                         class="cardStyles"
                         width="100%"
-                        height="130px">
+                        height="85px">
                         <f:content>
                             <HBox id="_IDGenHBox22">
                                 <HBox
@@ -77,7 +131,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar12"
-                                        displaySize="XL"
+                                        displaySize="L"
                                         backgroundColor="Accent7"
                                         displayShape="Square"
                                         src="sap-icon://sales-order"
@@ -102,6 +156,10 @@
                                         />
 
                                     </VBox>
+                                    <ObjectStatus
+                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            text="100000"
+                                            />
                                 </HBox>
                             </HBox>
                         </f:content>
@@ -111,7 +169,7 @@
                         id="_IDGenCard13"
                         class="cardStyles"
                         width="100%"
-                        height="130px">
+                        height="85px">
                         <f:content>
                             <HBox id="_IDGenHBox23">
                                 <HBox
@@ -121,7 +179,7 @@
                                 >
                                     <Avatar
                                         id="_IDGenAvatar13"
-                                        displaySize="XL"
+                                        displaySize="L"
                                         backgroundColor="Accent8"
                                         displayShape="Square"
                                         src="sap-icon://payment-approval"
@@ -146,6 +204,10 @@
                                         />
 
                                     </VBox>
+                                    <ObjectStatus
+                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            text="100000"
+                                            />
                                 </HBox>
                             </HBox>
                         </f:content>

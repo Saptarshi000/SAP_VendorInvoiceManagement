@@ -1,29 +1,43 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
-    "sap/ui/core/BusyIndicator"
+    "sap/ui/core/BusyIndicator",
+    "sap/ui/core/UIComponent"
+    
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, BusyIndicator) {
+    function (Controller, JSONModel, BusyIndicator, UIComponent) {
         "use strict";
 
         return Controller.extend("sapvim.controller.Home", {
+            // onBeforeRendering: function () {
+            // },
+            // onAfterRendering: function () {
+            //     console.log("onAfterRendering method executing")
+            // },
             onInit: function () {
+                // let data;
+                // if(localStorage.getItem("userData")){
+                //     data = JSON.parse( localStorage.getItem("userData") )
+                //     this.byId('venID').setText(data.Username);
+                // }else{
+                //     var routerObj = this.getOwnerComponent().getRouter();
+                //     routerObj.navTo("Screen7");
+                // }
 
-                if(localStorage.getItem("userData")){
-                    let data = JSON.parse( localStorage.getItem("userData") ) 
-                    // console.log(data.Username)
-                    this.byId('_IDGenText2').setText(data.Username);
-                }else{
-                    var routerObj = this.getOwnerComponent().getRouter();
-                    routerObj.navTo("Screen7");
-                }
+                // var a = this.byId('venID').getText();
 
-                var a = this.byId('_IDGenText2').getText();
+                // console.log(a)
+                // this.getDataValue(a);
+                console.log("ONINIT method executing")
 
-                this.getDataValue(a);
+                // var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                // oRouter.getRoute("home").attachPatternMatched(this.setDataonUI, this);
+
+                var oRouter = UIComponent.getRouterFor(this);
+                oRouter.attachRouteMatched(this.setDataonUI, this);
 
                 var oData = {
                     "SelectedProduct": "USD",
@@ -97,10 +111,8 @@ sap.ui.define([
                 var oModel = new JSONModel(oData);
                 this.getView().setModel(oModel);
 
-
                 var oVizFrame = this.oVizFrame = this.getView().byId("_IDGenVizFrame1");
                 var oVizFrame1 = this.oVizFrame = this.getView().byId("_IDGendfVizFrame1");
-                // var oVizFrame2 = this.oVizFrame = this.getView().byId("_IDGendfVizdfFrame1");
                 var jsonData1 = [
                     { Month: 'Jan', Invoices: "454" },
                     { Month: 'Feb', Invoices: "512" },
@@ -113,17 +125,28 @@ sap.ui.define([
                 jsonModel.setData(jsonData1);
                 oVizFrame.setModel(jsonModel);
                 oVizFrame1.setModel(jsonModel);
-                // oVizFrame2.setModel(jsonModel);
+            },
+            setDataonUI: function(){
+                console.log("setDataonUI method executing")
 
+                let data;
+                if (localStorage.getItem("userData")) {
+                    data = JSON.parse(localStorage.getItem("userData"))
+                    this.byId('venID').setText(data.Username);
+                } else {
+                    var routerObj = this.getOwnerComponent().getRouter();
+                    routerObj.navTo("Screen7");
+                }
 
-
+                var a = this.byId('venID').getText();
+                this.getDataValue(a);
             },
             getDataValue: function (venId) {
                 BusyIndicator.show();
                 var that = this;
                 var oModel = this.getOwnerComponent().getModel();
                 // console.log(venId);
-                console.log(oModel)
+                // console.log(oModel)
 
                 oModel.setUseBatch(false);
 
@@ -135,7 +158,7 @@ sap.ui.define([
 
                         setTimeout(() => {
                             BusyIndicator.hide();
-                          }, 2000);
+                        }, 2000);
                     },
                     error: function (oError) {
                         console.log("Error");

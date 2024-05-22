@@ -43,15 +43,15 @@ sap.ui.define([
                         localStorage.removeItem("userData");
                         localStorage.clear();
     
-                        location.reload();
+                        // location.reload();
                         // Routing to main page
-                        var routerObj = that.getOwnerComponent().getRouter();
+                        var routerObj = this.getOwnerComponent().getRouter();
                         routerObj.navTo("Screen7");
                     }else return
                     
                 }else{
-                    var routerObj = that.getOwnerComponent().getRouter();
-                    routerObj.navTo("Screen7");
+                    // var routerObj = that.getOwnerComponent().getRouter();
+                    // routerObj.navTo("Screen7");
                 }
             }
         });
