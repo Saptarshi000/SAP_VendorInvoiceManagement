@@ -75,10 +75,37 @@ sap.ui.define([
                             oList.addItem(listItem);
                         }
 
+                        // Search bar code 
+                        var filteredItems;
+                        var oSearchField = new sap.m.SearchField({
+                            placeholder: "Search",
+                            width: "100%",
+                            search: function(oEvent) {                    
+                                var sValue = oEvent.getParameter("query"); // Get the search query
+                                var aListItems = oList.getItems(); // Get the array of list items
+                                filteredItems = aListItems.filter(function(item) {
+                                    return item.getTitle().includes(sValue); // Filter list items based on the search query
+                                }).map(function(filteredItem) {
+                                    return {
+                                        title: filteredItem.getTitle(), // Create an array of objects containing the filtered items
+                                        info: filteredItem.getInfo()
+                                    };
+                                });
+                                oList.destroyItems();
+                                for (var i = 0; i < filteredItems.length; i++) {
+                                    var company = filteredItems[i];
+                                    var listItem = new sap.m.StandardListItem({
+                                        title: company.title,
+                                        info: company.info
+                                    });
+                                    oList.addItem(listItem);
+                                }
+                            }
+                        });
                         // Create the Dialog with the List control as content
                         var oDialog = new sap.m.Dialog({
                             title: "Choose ",
-                            content: oList, endButton: new sap.m.Button({
+                            content: [oSearchField, oList], endButton: new sap.m.Button({
                                 text: "Close",
                                 press: function () {
                                     oDialog.close();
