@@ -1,0 +1,123 @@
+<mvc:View controllerName="sapvim.controller.DebitCredit"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>invVerfy}">
+        <!-- <content >
+            <Text text="hjkl" />
+        </content> -->
+
+        <content>
+            <mvc:XMLView id="_IDGenXMLView1" viewName="sapvim.view.Navbar" />
+            <VBox id="submitVboxPopUp34545">
+                <FlexBox id="fbox15555" class="tabs mySamplePadding">
+                    <VBox>
+                        <Table
+                            alternateRowColors="true"
+                            width="auto"
+                            class="table"
+                            id="tableObj"
+                            backgroundDesign="Translucent"
+                           
+                        >
+                        <!-- items="{
+                            path: 'invStatus>/results',
+                            sorter: {
+                                path: 'portal_ref'
+                            }
+                        }" -->
+
+                            <columns>
+                                <Column
+                                    id="_IDGenColumn132"
+                                >
+                                    <Text
+                                        id="_IDGenText132"
+                                        text="Vendor Name"
+                                    />
+                                </Column>
+                                <Column id="_IDGenColumn2">
+                                    <Text
+                                        id="_IDGenText3"
+                                        text="Date"
+                                    />
+                                </Column>
+                                <Column
+                                    id="_IDGenColumn3"
+                                >
+                                    <Text
+                                        id="_IDGenText4"
+                                        text="Amount"
+                                    />
+                                </Column>
+                                <Column id="_IDGenColumn9">
+                                    <Text
+                                        id="_IDGenText9"
+                                        text="Reference No"
+                                    />
+                                </Column>
+                                <Column id="_IDGenColumn4">
+                                    <Text
+                                        text="Remarks" />
+                                </Column>
+                               
+                                <Column id="_IDGenColumn6">
+                                    <Text
+                                        id="_IDGenText6"
+                                        text="Status"
+                                    />
+                                </Column>
+                                
+                            </columns>
+                            <!-- <items>
+                                <ColumnListItem id="_IDGenColumnListItem1">
+                                    <cells>
+                                         <Text
+                                            text="{invStatus>vendor}"
+                                        />
+                                        <Text
+                                            text="{invStatus>portal_ref}"
+                                        />
+                                        <Text
+                                            text="{invStatus>po_no}"
+                                        />
+                                        <Text
+                                            text="{invStatus>vendor_inv_no}"
+                                        />
+                                       
+                                        <DatePicker value="{invStatus>inv_date}"
+                                            valueFormat="yyyyMMdd" editable="false" />
+                                        <Text
+                                            text="{invStatus>item_ID}"
+                                        />
+                                        <Text
+                                            text="{invStatus>item_descp}"
+                                        />
+                                        <Text
+                                            text="{invStatus>amnt}"
+                                        />
+                                        <Text
+                                            text="{invStatus>status}"
+                                        />
+                                        
+                                        <Text
+                                            text="{invStatus>blocked_dt}"
+                                        />
+                                        <Text
+                                            text="{invStatus>cleared_dt}"
+                                        /> 
+                                        <DatePicker value="{invStatus>verified_dt}"
+                                            valueFormat="yyyyMMdd" editable="false" />
+                                        <DatePicker value="{invStatus>blocked_dt}"
+                                            valueFormat="yyyyMMdd" editable="false" />
+                                        <DatePicker value="{invStatus>cleared_dt}"
+                                            valueFormat="yyyyMMdd" editable="false" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items> -->
+                        </Table>
+                    </VBox>
+                </FlexBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

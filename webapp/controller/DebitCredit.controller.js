@@ -7,7 +7,7 @@ sap.ui.define([
     function (Controller) {
         "use strict";
 
-        return Controller.extend("sapvim.controller.InvoiceVerified", {
+        return Controller.extend("sapvim.controller.DebitCredit", {
             onInit: function () {
 
             }

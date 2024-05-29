@@ -1,18 +1,29 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageBox",
-    "sap/ui/core/BusyIndicator"
+    "sap/ui/core/BusyIndicator",
+    "sap/ui/core/routing/History"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, MessageBox, BusyIndicator) {
+    function (Controller, MessageBox, BusyIndicator, History) {
         "use strict";
 
         return Controller.extend("sapvim.controller.Login", {
             onInit: function () {
                 // this.getDataValue()
                 // location.reload();
+
+                // NAV STAFF
+                window.onhashchange = function() {
+                    if (window.innerDocClick) {
+                        //Your own in-page mechanism triggered the hash change
+                    } else {
+                        //Browser back button was clicked
+                        this.navBack(this.getOwnerComponent().getRouter())
+                    }
+                }
             },
             getDataValue: function () {
                 BusyIndicator.show();
@@ -49,10 +60,14 @@ sap.ui.define([
                             }
 
                         } else {
-                            MessageBox.error(oData.Message);
-                            // console.log(oData.Message)
+                            if(oData.Message === "FAIL"){
+                                MessageBox.error("Invalid Credentials");
+                                // console.log(oData.Message)
                             that.byId("password").setValue(null)
                             BusyIndicator.hide();
+                            }
+                            
+                            
                         }
 
 
@@ -64,6 +79,16 @@ sap.ui.define([
                         BusyIndicator.hide();
                     }
                 })
-            }
+            },
+
+            // Navigation staff
+            navBack: router => History.getInstance().getPreviousHash() !== undefined
+            ?router.navTo("") 
+            // window.history.go(-1) // Navigate back
+            : router.navTo(""), // Navigate up
+
+            // navButtonPress=".navBack($controller.getOwnerComponent().getRouter())"
+
+            
         });
     });

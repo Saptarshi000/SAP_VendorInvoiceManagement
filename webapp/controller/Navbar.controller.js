@@ -31,9 +31,9 @@ sap.ui.define([
                 var routerObj = this.getOwnerComponent().getRouter();
                 routerObj.navTo("Screen5");
             },
-            onClickReport: function () {
+            onClickDbtCr: function () {
                 var routerObj = this.getOwnerComponent().getRouter();
-                routerObj.navTo("");
+                routerObj.navTo("Screen6");
             },
             onClickSignOut: function () {
                 console.log( JSON.parse(localStorage.getItem("userData")).Message )

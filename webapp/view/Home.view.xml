@@ -59,7 +59,7 @@
                                     </VBox>
                                     <ObjectStatus
                                             class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
-                                            text="100000"
+                                            text="{homeValue>/total_po}"
                                             />
                                 </HBox>
                             </HBox>
@@ -82,7 +82,7 @@
                                         displaySize="L"
                                         backgroundColor="Accent9"
                                         displayShape="Square"
-                                        src="sap-icon://batch-payments"
+                                        src="sap-icon://expense-report"
                                     />
                                 </HBox>
                                 <HBox
@@ -98,7 +98,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency12222"
                                             class="avatarStyles"
-                                            stringValue="{homeValue>/tot}"
+                                            stringValue="{homeValue>/open_amt}"
                                             useSymbol="false"
                                         />
                                         <!-- <HBox class="sapUiTinyMargin sapUiSmallMarginEnd">
@@ -110,7 +110,7 @@
                                     </VBox>
                                     <ObjectStatus
                                             class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
-                                            text="100000"
+                                            text="{homeValue>/open_po}"
                                             />
                                 </HBox>
                             </HBox>
@@ -158,7 +158,7 @@
                                     </VBox>
                                     <ObjectStatus
                                             class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
-                                            text="100000"
+                                            text="{homeValue>/inv_created}"
                                             />
                                 </HBox>
                             </HBox>
@@ -206,7 +206,7 @@
                                     </VBox>
                                     <ObjectStatus
                                             class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
-                                            text="100000"
+                                            text="{homeValue>/po_clrd}"
                                             />
                                 </HBox>
                             </HBox>

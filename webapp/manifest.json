@@ -37,6 +37,7 @@
         }
     },
     "sap.ui": {
+        "fullWidth":true,
         "technology": "UI5",
         "icons": {
             "icon": "",
@@ -194,7 +195,7 @@
                 },
                 "Screen6": {
                     "viewId": "Screen6",
-                    "viewName": ""
+                    "viewName": "DebitCredit"
                 },
                 "Screen7": {
                     "viewId": "Screen7",

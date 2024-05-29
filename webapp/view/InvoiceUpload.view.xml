@@ -28,13 +28,13 @@
                                 />
                             </HBox>
                             <HBox id="subVbox11522" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a17" text="Vendor Inv. No."></Text>
+                                <Label id="a17" text="Vendor Inv. No." labelFor="VIN" />
                                 <Input id="VIN" class="sapUiSmallMarginBegin inpWidth9"
-                                    width="150%" maxLength="40"/>
+                                    width="150%" maxLength="40" required="true"/>
                             </HBox>
                             <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="b1444" text="Invoice Date" />
-                                <DatePicker id="invDate" valueFormat="yyyyMMdd" class="sapUiSmallMarginBegin inpWidth3" />
+                                <Label id="b1444" text="Invoice Date" labelFor="invDate"/>
+                                <DatePicker id="invDate" valueFormat="yyyyMMdd" class="sapUiSmallMarginBegin inpWidth3" required="true"/>
                             </HBox>
 
                             <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
@@ -68,12 +68,11 @@
                     <VBox>
                         <HBox>
                             <Table
-                                alternateRowColors="true"
+                                alternateRowColors="false"
                                 width="auto"
                                 class="table"
                                 id="tableObj"
                                 mode="MultiSelect"
-                                backgroundDesign="Translucent"
                                 items="{
                                     path: 'poLineItems>/results'
                                 }"
@@ -113,6 +112,12 @@
                                         <Text
                                             id="_IDGenText5"
                                             text="Deliver Qty."
+                                        />
+                                    </Column>
+                                    <Column id="_IDGenColumn522222">
+                                        <Text
+                                         
+                                            text="Inv Submitted Qty."
                                         />
                                     </Column>
                                     <Column id="_IDGenColumn6">
@@ -158,14 +163,14 @@
                                             <Text id="_IDGenText14"
                                                 text="{poLineItems>DeliverQuantity}"
                                             />
-                                            <!-- <Text id="_IDGenText15"
-                                                text="{poLineItems>InvoiceQty}"
-                                            /> -->
+                                            <Text id="_IDGenText15"
+                                                text="{poLineItems>InvoiceSubmittedQty}"
+                                            />
                                             <Input id="_IDGenInput1" 
                                             type="Text" 
                                             value="{poLineItems>InvoiceQty}" 
                                             width="50%"
-                                            liveChange="handleChangeQty"
+                                            change="handleChangeQty"
                                                 />
                                             <Text id="_IDGenText16"
                                                 text="{poLineItems>Taxcode}"
@@ -174,7 +179,7 @@
                                                 text="{poLineItems>Netpr}"
                                             />
                                             <Text id="_IDGenText18"
-                                                text=""
+                                                text="0.00"
                                             />
                                         </cells>
                                     </ColumnListItem>
@@ -188,7 +193,7 @@
             <VBox class="tabs mySamplePadding" width="30%">
                 <HBox id="subVbox1153" class="sapUiTinyMarginBeginEnd inputPymt45">
                     <Text id="a11" text="Tot. Amount"></Text>
-                    <Input id="Amt" type="Number"
+                    <Input id="Amt" type="Number" 
                         class="sapUiLargeMarginBegin inpWidth4" width="100%" editable="false"/>
                 </HBox>
             </VBox>
@@ -197,7 +202,7 @@
             <Toolbar>
                 <ToolbarSpacer />
                 <Button type="Reject" text="Cancel" press="onPressCancel" />
-                <Button type="Emphasized" text="Submit" press="onPressubmit" />
+                <Button type="Emphasized" id="submitBtn" text="Submit" press="onPressubmit" />
             </Toolbar>
         </footer>
     </Page>

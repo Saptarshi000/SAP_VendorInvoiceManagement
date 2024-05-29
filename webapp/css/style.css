@@ -46,11 +46,11 @@
 }
 
 .inpWidth1 {
-  margin-left: 50px !important;
+  margin-left: 60px !important;
 }
 
 .inpWidth2 {
-  margin-left: 70px !important;
+  margin-left: 78px !important;
 }
 
 .inpWidth3 {
@@ -62,7 +62,7 @@
 }
 
 .inpWidth5 {
-  margin-left: 27px !important;
+  margin-left: 37px !important;
 }
 
 .inpWidth6 {
@@ -70,7 +70,7 @@
 }
 
 .inpWidth7 {
-  margin-left: 73px !important;
+  margin-left: 83px !important;
 }
 
 .inpWidth8 {
@@ -351,7 +351,7 @@
 }
 
 .cardStyles1 {
-  margin-left: 410px;
+  margin-left: 50px;
   margin-top: 95px;
 }
 
@@ -513,7 +513,7 @@
 /* Login Page */
 
 .navbarSignOut{
-  margin-left: 740px !important;
+  margin-left: 600px !important;
   margin-right: 0px !important;
   /* background-color: rgb(255, 182, 182); */
   /* color: white !important; */
@@ -525,6 +525,7 @@
   margin-top: 50px !important;
   /* text-align: end !important; */
 }
+
 .valueCount1{
   margin-left: 0px !important;
   /* text-align: end !important; */

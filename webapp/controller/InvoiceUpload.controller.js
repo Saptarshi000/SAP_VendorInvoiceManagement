@@ -21,8 +21,10 @@ sap.ui.define([
     function (Controller, MessageBox, UI5Date, ColumnListItem, Input, StandardListItem, PDFViewer, List, ActionListItem, Dialog, Button, ButtonType, JSONModel, BusyIndicator) {
         "use strict";
 
+
         return Controller.extend("sapvim.controller.InvoiceUpload", {
             onInit: function () {
+                this.getView().byId("submitBtn").setEnabled(false)
                 this.byId("invDate").setMaxDate(new Date());
 
                 if(localStorage.getItem("userData")){
@@ -36,6 +38,9 @@ sap.ui.define([
             },
             getAllPO: function () {
                 var that = this;
+
+                this.byId("Amt").setValue(0);
+                that.getView().setModel(new JSONModel([]), "poLineItems");
 
                 var venId = that.byId("vendNo").getValue();
                 var oModel = this.getOwnerComponent().getModel();
@@ -150,7 +155,7 @@ sap.ui.define([
                             var oInput = oItem.getAggregation("cells")[4].getProperty("text")
                             console.log(oInput)
 
-                            var oInput2 = oItem.getAggregation("cells")[5].getId()
+                            var oInput2 = oItem.getAggregation("cells")[6].getId()
                             console.log(oInput2)
 
                             if (oInput == 0) {
@@ -167,21 +172,36 @@ sap.ui.define([
                 })
             },
             handleChangeQty: function (oEvent) {
+                // var tableInput = []
                 var totalAmt = 0;
                 var aItems = this.byId("tableObj").getItems()
                 for (let oItem of aItems) {
-                    let oText = oItem.getAggregation("cells")[7].getProperty("text")
+                    let oText = oItem.getAggregation("cells")[8].getProperty("text")
                     console.log(oText)
 
-                    let oInput = oItem.getAggregation("cells")[5].getValue()
+                    let oInput = oItem.getAggregation("cells")[6].getValue()
                     console.log(oInput)
+
+                    if(oInput == ""){
+                        oInput = 0
+                        // tableInput.push(oInput)
+                    }
+                    else if(oInput == "0"){
+                        // tableInput.push(oInput)
+                    }
 
                     let tot = parseFloat(oText) * parseFloat(oInput)
 
-                    var ooText = oItem.getCells()[8];
+                    var ooText = oItem.getCells()[9];
                     ooText.setText(tot);
 
                     totalAmt += tot;
+                    
+                    if(totalAmt > 0){
+                        this.getView().byId("submitBtn").setEnabled(true)
+                    }else{
+                        this.getView().byId("submitBtn").setEnabled(false)
+                    }
                 }
                 this.byId("Amt").setValue(totalAmt);
             },
@@ -221,53 +241,53 @@ sap.ui.define([
             // openPDFeSign: function () {
             //     this.byId("_IDGenPDFViewerESign").downloadPDF();
             // },
-            addRow: function () {
-                var columns = new ColumnListItem({
-                    cells: [
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        new Input({ maxLength: 100 }),
-                        // qty,
-                        // taxAmtObj,
-                        // taxCodeInput,
-                        // new Input({maxLength:100}),
-                        // hCodeInput,
-                        // new Input({maxLength:100})
-                    ]
-                });
+            // addRow: function () {
+            //     var columns = new ColumnListItem({
+            //         cells: [
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             new Input({ maxLength: 100 }),
+            //             // qty,
+            //             // taxAmtObj,
+            //             // taxCodeInput,
+            //             // new Input({maxLength:100}),
+            //             // hCodeInput,
+            //             // new Input({maxLength:100})
+            //         ]
+            //     });
 
-                var tableObj = this.byId('tableObj')
-                var length = tableObj.getItems().length;
-                if (length >= 10) {
-                    MessageBox.warning("Cannot add more than 10 rows");
-                } else {
-                    tableObj.addItem(columns);
-                }
-            },
-            deleteRow: function () {
-                var tableObj = this.byId('tableObj');
-                var rows = tableObj.getItems();
-                var selectedRows = tableObj.getSelectedItems();
-                var length = rows.length;
-                if (selectedRows.length > 0) {
-                    selectedRows.forEach(function (selectedRow) {
-                        tableObj.removeItem(selectedRow);
-                    })
-                }
-                else if (length > 0) {
-                    tableObj.removeItem(rows[length - 1]);
-                }
-                else {
-                    MessageBox.warning("No rows to delete");
-                }
-                // this.totalAmt();
-            },
+            //     var tableObj = this.byId('tableObj')
+            //     var length = tableObj.getItems().length;
+            //     if (length >= 10) {
+            //         MessageBox.warning("Cannot add more than 10 rows");
+            //     } else {
+            //         tableObj.addItem(columns);
+            //     }
+            // },
+            // deleteRow: function () {
+            //     var tableObj = this.byId('tableObj');
+            //     var rows = tableObj.getItems();
+            //     var selectedRows = tableObj.getSelectedItems();
+            //     var length = rows.length;
+            //     if (selectedRows.length > 0) {
+            //         selectedRows.forEach(function (selectedRow) {
+            //             tableObj.removeItem(selectedRow);
+            //         })
+            //     }
+            //     else if (length > 0) {
+            //         tableObj.removeItem(rows[length - 1]);
+            //     }
+            //     else {
+            //         MessageBox.warning("No rows to delete");
+            //     }
+            //     // this.totalAmt();
+            // },
             onPressubmit: function () {
                 var that = this
                 var oTable_Selected = this.getView().byId("tableObj").getSelectedItems();
@@ -290,11 +310,11 @@ sap.ui.define([
                             "ItemDesc": selectedItem.getCells()[2].getText(),
                             "OrderQuantity": selectedItem.getCells()[3].getText(),
                             "DeliverQuantity": selectedItem.getCells()[4].getText(),
-                            "InvoiceQty": selectedItem.getCells()[5].getValue(),
-                            "Taxcode": selectedItem.getCells()[6].getText(),
+                            "InvoiceQty": selectedItem.getCells()[6].getValue(),
+                            "Taxcode": selectedItem.getCells()[7].getText(),
                             "Taxamt": "0.000",
-                            "Netpr": selectedItem.getCells()[7].getText(),
-                            "Netwr": selectedItem.getCells()[8].getText(),
+                            "Netpr": selectedItem.getCells()[8].getText(),
+                            "Netwr": selectedItem.getCells()[9].getText(),
                             "Uom": ""
                         })
                     }
@@ -307,11 +327,12 @@ sap.ui.define([
                         "InvoiceDate": this.byId("invDate").getValue(),
                         "Email": this.byId("email").getValue(),
                         "TotalSubAmt": sumAmt.toString(),
+                        "InvioceDocu": this.byId("selectedFileText").getText(),
                         "po_lineitemSet": {
                             "results": jsonArr
                         }
                     }
-                    // console.log(payload)
+                    
     
                     var oModel = this.getOwnerComponent().getModel();
                     oModel.setUseBatch(false);
@@ -323,6 +344,7 @@ sap.ui.define([
                             that.byId("VIN").setValue(null)
                             that.byId("invDate").setDateValue(null)
                             that.byId("invDoc").setValue(null)
+                            that.byId("Amt").setValue(0)
                             that.getView().setModel(new JSONModel([]), "poLineItems");
     
                             let p = JSON.parse(oResponse.headers['sap-message'])
