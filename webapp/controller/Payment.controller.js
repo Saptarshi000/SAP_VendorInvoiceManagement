@@ -3,12 +3,13 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
-    "sap/ui/core/BusyIndicator"
+    "sap/ui/core/BusyIndicator",
+    "sap/ui/core/UIComponent"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, Filter, FilterOperator, BusyIndicator) {
+    function (Controller, JSONModel, Filter, FilterOperator, BusyIndicator, UIComponent) {
         "use strict";
 
        const v = "";
@@ -17,6 +18,23 @@ sap.ui.define([
         return Controller.extend("sapvim.controller.Payment", {
             onInit: function () {
 
+                // if (localStorage.getItem("userData")) {
+                //     let data = JSON.parse(localStorage.getItem("userData"))
+                //     var venId = data.Username
+                //     this.v = data.Username
+                //     this.byId('vendNo').setText(data.Username);
+                // } else {
+                //     var routerObj = this.getOwnerComponent().getRouter();
+                //     routerObj.navTo("Screen7");
+                // }
+
+                // this.onclickTotDue();
+                // this.getCountDatas(venId)
+
+                var oRouter = UIComponent.getRouterFor(this);
+                oRouter.attachRouteMatched(this.setDataonUI, this);
+            },
+            setDataonUI: function(){
                 if (localStorage.getItem("userData")) {
                     let data = JSON.parse(localStorage.getItem("userData"))
                     var venId = data.Username
