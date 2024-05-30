@@ -169,13 +169,13 @@ sap.ui.define([
                     aFilter.push( new Filter("inv_date", FilterOperator.Contains, dQuery));
                 }
 
-                if(this.selectedTable = "S"){
+                if(this.selectedTable == "S"){
                     oList = this.byId("tableObjSubmitted");
-                }else if(this.selectedTable = "V"){
+                }else if(this.selectedTable == "V"){
                     oList = this.byId("tableObjVerified");
-                }else if(this.selectedTable = "B"){
+                }else if(this.selectedTable == "B"){
                     oList = this.byId("tableObjBlocked");
-                }else if(this.selectedTable = "C"){
+                }else if(this.selectedTable == "C"){
                     oList = this.byId("tableObjPayments");
                 }
                 

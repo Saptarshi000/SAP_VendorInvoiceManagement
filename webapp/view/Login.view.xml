@@ -28,7 +28,9 @@
                 <f:content>
                     <VBox id="_IDGenVBox1" alignContent="Center"
                     >
-                        <Image id="_IDGenImage1" src="https://tecnics.com/wp-content/uploads/2020/03/logo1.png" width="228px" 
+                        <Image id="_IDGenImage1"
+                            src="https://tecnics.com/wp-content/uploads/2020/03/logo1.png"
+                            width="228px"
                             class="logoclass" />
 
                         <HBox
@@ -41,12 +43,13 @@
                                     id="_IDGenText14"
                                     text="Vendor ID"
                                     class="loginusernameStyle" />
-                                <Input id="login" type="Text" width="500px" class="loginusernameStyle" />
+                                <Input id="login" type="Text" width="500px"
+                                    class="loginusernameStyle" />
                                 <VBox id="_IDGenVBox1234" class="usernameStyle2">
                                     <Title
                                         id="_IDGenText14344"
                                         text="Password" class="loginusernameStyle" />
-                                    <Input id="password" type="Password" width="500px" maxLength="8"/>
+                                    <Input id="password" type="Password" width="500px" maxLength="8" />
                                 </VBox>
                                 <Button
                                     id='dashboard'
@@ -73,8 +76,8 @@
                     </VBox>
                 </f:content>
             </f:Card>
-            
-            </FlexBox>
+
+        </FlexBox>
         <!-- </content> -->
     </Page>
 </mvc:View>
