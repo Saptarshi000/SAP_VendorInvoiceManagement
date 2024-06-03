@@ -26,11 +26,6 @@
                         width="150%"
                         height="85px"
                     >
-                        <!-- <f:header>
-                            <card:Header
-                                press="onClickBtn"
-                            />
-                        </f:header> -->
                         <f:content>
                             <HBox id="_IDGenHBox2">
                                 <HBox
@@ -61,7 +56,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency1"
                                             class="avatarStyles"
-                                            stringValue="{countData>/total_due}"
+                                            stringValue="{invPymtCnt>/Total_due}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -106,7 +101,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency12"
                                             class="avatarStyles"
-                                            stringValue="{countData>/over_due}"
+                                            stringValue="{invPymtCnt>/Over_due}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />
@@ -151,7 +146,7 @@
                                         <unified:Currency
                                             id="_IDGenCurrency13"
                                             class="avatarStyles"
-                                            stringValue="{countData>/due_30}"
+                                            stringValue="{invPymtCnt>/Due_30}"
                                             currency="{Currency}"
                                             useSymbol="false"
                                         />

@@ -3,7 +3,7 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/BusyIndicator",
     "sap/ui/core/UIComponent"
-    
+
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
@@ -111,8 +111,8 @@ sap.ui.define([
                 var oModel = new JSONModel(oData);
                 this.getView().setModel(oModel);
 
-                var oVizFrame = this.oVizFrame = this.getView().byId("_IDGenVizFrame1");
-                var oVizFrame1 = this.oVizFrame = this.getView().byId("_IDGendfVizFrame1");
+                // var oVizFrame = this.oVizFrame = this.getView().byId("_IDGenVizFrame1");
+                // var oVizFrame1 = this.oVizFrame = this.getView().byId("_IDGendfVizFrame1");
                 var jsonData1 = [
                     { Month: 'Jan', Invoices: "454" },
                     { Month: 'Feb', Invoices: "512" },
@@ -123,10 +123,10 @@ sap.ui.define([
                 ]
                 var jsonModel = new JSONModel();
                 jsonModel.setData(jsonData1);
-                oVizFrame.setModel(jsonModel);
-                oVizFrame1.setModel(jsonModel);
+                // oVizFrame.setModel(jsonModel);
+                // oVizFrame1.setModel(jsonModel);
             },
-            setDataonUI: function(){
+            setDataonUI: function () {
                 console.log("setDataonUI method executing")
 
                 let data;
@@ -140,6 +140,7 @@ sap.ui.define([
 
                 var a = this.byId('venID').getText();
                 this.getDataValue(a);
+                this.getGraphData(a)
             },
             getDataValue: function (venId) {
                 BusyIndicator.show();
@@ -165,6 +166,38 @@ sap.ui.define([
                         console.log(oError)
                     }
                 })
+            },
+            getGraphData: function (venId) {
+                var that = this;
+                var oModel = this.getOwnerComponent().getModel();
+
+                oModel.setUseBatch(false);
+
+                oModel.read(`/po_totSet('${venId}')`, {
+                    urlParameters: {
+                        "$expand": "graphDetailsNav"
+                    },
+                    success: function (oData) {
+                        console.log(oData);
+                        var jsonData = oData.graphDetailsNav
+
+                        var setMonths = [ "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+
+                        // var maindata = odata.graphDetailsNav
+                        for(var i=0 ; i<(jsonData.results).length ; i++){
+                            jsonData.results[i].month = setMonths[i];
+                        }
+
+                        
+                        var oModel = new JSONModel(jsonData);
+                        that.getView().setModel(oModel, "graphData");
+                    },
+                    error: function (oError) {
+                        console.log("Error");
+                        console.log(oError)
+                    }
+                })
+
             }
         });
     });

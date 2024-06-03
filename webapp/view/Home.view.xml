@@ -157,7 +157,7 @@
 
                                     </VBox>
                                     <ObjectStatus
-                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            class="sapUiSmallMargin sapUiTinyMarginEnd valueCount"
                                             text="{homeValue>/inv_created}"
                                             />
                                 </HBox>
@@ -205,7 +205,7 @@
 
                                     </VBox>
                                     <ObjectStatus
-                                            class="sapUiTinyMargin sapUiTinyMarginEnd valueCount"
+                                            class="sapUiSmallMargin sapUiTinyMarginEnd valueCount"
                                             text="{homeValue>/po_clrd}"
                                             />
                                 </HBox>
@@ -224,26 +224,26 @@
                                     height="400px"
                                     class="chartStyles"
                                     id="_IDGenVizFrame1"
-                                    vizProperties="{title: {text: 'Monthly Invoices'}, plotArea: {dataLabel: {visible: true, type: 'value'}, dataPoint: {stroke: {visible: true}}}}"
+                                    vizProperties="{title: {text: 'Monthly Count'}, plotArea: {dataLabel: {visible: true, type: 'value'}, dataPoint: {stroke: {visible: true}}}}"
                                     vizType="donut"
                                 >
                                     <viz:dataset>
                                         <viz.data:FlattenedDataset
                                             id="_IDGenFlattenedDataset2"
-                                            data="{/}"
+                                            data="{graphData>/results}"
                                         >
                                             <viz.data:dimensions>
                                                 <viz.data:DimensionDefinition
                                                     id="_IDGenDimensionDefinition2"
                                                     name="Month"
-                                                    value="{Month}"
+                                                    value="{graphData>month}"
                                                 />
                                             </viz.data:dimensions>
                                             <viz.data:measures>
                                                 <viz.data:MeasureDefinition
                                                     id="_IDGenMeasureDefinition2"
                                                     name="Invoices"
-                                                    value="{Invoices}"
+                                                    value="{graphData>count}"
                                                 />
                                             </viz.data:measures>
                                         </viz.data:FlattenedDataset>
@@ -271,25 +271,25 @@
                                     height="400px"
                                     class="chartStyles"
                                     id="_IDGendfVizFrame1"
-                                    vizProperties="{title: {text: 'Monthly Invoices'}, plotArea: {dataLabel: {visible: true}}}"
+                                    vizProperties="{title: {text: 'Monthly Amount'}, plotArea: {dataLabel: {visible: true}}}"
                                 >
                                     <viz:dataset>
                                         <viz.data:FlattenedDataset
                                             id="_IDGenFlatdftenedDataset2"
-                                            data="{/}"
+                                            data="{graphData>/results}"
                                         >
                                             <viz.data:dimensions>
                                                 <viz.data:DimensionDefinition
                                                     id="_IDGedfnDimensionDefinition2"
                                                     name="Month"
-                                                    value="{Month}"
+                                                    value="{graphData>month}"
                                                 />
                                             </viz.data:dimensions>
                                             <viz.data:measures>
                                                 <viz.data:MeasureDefinition
                                                     id="_IDGendfMeasureDefinition2"
-                                                    name="Invoices"
-                                                    value="{Invoices}"
+                                                    name="Amounts"
+                                                    value="{graphData>amount}"
                                                 />
                                             </viz.data:measures>
                                         </viz.data:FlattenedDataset>
@@ -304,7 +304,7 @@
                                         <viz.feeds:FeedItem
                                             id="_IDGedfnFeedItem2"
                                             type="Measure"
-                                            values="Invoices"
+                                            values="Amounts"
                                             uid="valueAxis"
                                         />
                                     </viz:feeds>

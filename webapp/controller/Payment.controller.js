@@ -47,7 +47,7 @@ sap.ui.define([
 
 
                 this.onclickTotDue();
-                this.getCountDatas(venId)
+                // this.getCountDatas(venId)
             },
             getCountDatas: function (venId) {
                 BusyIndicator.show();
@@ -123,6 +123,10 @@ sap.ui.define([
                         var jModel = new JSONModel(oData.po_duelineitemSet);
                         // // console.log(jModel)
                         that.getView().setModel(jModel, "invPymt");
+
+                        var jModelCount = new JSONModel(oData);
+                        // console.log(jModelCount)
+                        that.getView().setModel(jModelCount, "invPymtCnt");
 
                         setTimeout(() => {
                             BusyIndicator.hide();
