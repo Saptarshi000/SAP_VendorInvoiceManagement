@@ -340,6 +340,7 @@ sap.ui.define([
                     oModel.create("/po_headerSet", payload, {
                         success: function (oData, oResponse) {
     
+                            that.byId("selectedFileText").setText(null)
                             that.byId("poNo").setValue(null)
                             that.byId("VIN").setValue(null)
                             that.byId("invDate").setDateValue(null)

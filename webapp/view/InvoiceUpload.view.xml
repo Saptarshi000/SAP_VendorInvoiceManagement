@@ -170,7 +170,7 @@
                                             type="Text" 
                                             value="{poLineItems>InvoiceQty}" 
                                             width="50%"
-                                            change="handleChangeQty"
+                                            liveChange="handleChangeQty"
                                                 />
                                             <Text id="_IDGenText16"
                                                 text="{poLineItems>Taxcode}"
