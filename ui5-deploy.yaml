@@ -18,7 +18,7 @@ builder:
           url: http://202.153.35.211:50000/
         app:
           name: Z_VIM
-          description: Vendor Invoice Management
+          description: vim
           package: ZAPR
           transport: S4HK902828
         exclude:
