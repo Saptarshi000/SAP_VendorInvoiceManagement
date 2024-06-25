@@ -128,6 +128,20 @@ sap.ui.define([
                     }
                 })
             },
+            _convertStringToDate: function (sDate) {
+                // Assuming sDate is in the format "YYYYMMDD"
+                var year = sDate.substring(0, 4);
+                var month = sDate.substring(4, 6) - 1; // Months are zero-based in JavaScript Date
+                var day = sDate.substring(6, 8);
+          
+                return new Date(year, month, day);
+             },
+          
+            _formatDate: function (oDate) {
+                var oDateFormat = DateFormat.getDateInstance({style: "medium"});
+                return oDateFormat.format(oDate);
+            },
+
             getPoLineItems: function (po_num) {
                 var that = this;
                 var oModel = this.getOwnerComponent().getModel();
@@ -139,6 +153,19 @@ sap.ui.define([
                     },
                     success: function (oData) {
                         console.log("PO LINES")
+                        console.log(oData)
+                        console.log(oData.POTYPE);
+
+                        var oDatePicker = that.byId('invUplodeCreatedOn');
+                        var oDate = that._convertStringToDate(oData.CRET_DATE);
+                        oDatePicker.setDateValue(oDate);
+                        
+                        that.byId('invUplodePoType').setText(oData.POTYPE);
+                        // that.byId('invUplodeCreatedOn').setDateValue(oData.CRET_DATE);
+                        that.byId('invUplodePaymentTerms').setText(oData.PAYMENT_TERM);
+                        that.byId('invUplodePaymentDescription').setText(oData.PMNT_TM_DESCP);
+                        that.byId('invUplodeAddress').setText(oData.address);
+                        
                         console.log(oData.po_lineitemSet);
                         var jModel = new JSONModel(oData.po_lineitemSet);
                         // console.log(jModel)

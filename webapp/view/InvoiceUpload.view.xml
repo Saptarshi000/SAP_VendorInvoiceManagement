@@ -13,53 +13,77 @@
                 <FlexBox id="fbox1555" class="tabs mySamplePadding">
                     <VBox id="vbox1555">
                         <Label id="h1" text="Invoice Details" class="headdingNames" />
-                        <VBox id="hbox445" class="container">
-                            <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a1444" text="Vendor No" />
-                                <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
-                                    value="" editable="false" maxLength="10"/>
-                                    <!-- 0017300001 -->
-                            </HBox>
-                            <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a1" text="PO. No"></Text>
-                                <Input id="poNo" class="sapUiSmallMarginBegin inpWidth2"
-                                     maxLength="10" showValueHelp="true" width="50%"
-                                    valueHelpRequest="getAllPO"
-                                />
-                            </HBox>
-                            <HBox id="subVbox11522" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Label id="a17" text="Vendor Inv. No." labelFor="VIN" />
-                                <Input id="VIN" class="sapUiSmallMarginBegin inpWidth9"
-                                    width="150%" maxLength="40" required="true"/>
-                            </HBox>
-                            <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Label id="b1444" text="Invoice Date" labelFor="invDate"/>
-                                <DatePicker id="invDate" valueFormat="yyyyMMdd" class="sapUiSmallMarginBegin inpWidth3" required="true"/>
-                            </HBox>
+                        <HBox >
+                            <VBox id="hbox445" class="container">
+                                <HBox id="subVbox1155" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Text id="a1444" text="Vendor No" />
+                                    <Input id="vendNo" class="sapUiMediumMarginBegin inpWidth1"
+                                        value="" editable="false" maxLength="10"/>
+                                        <!-- 0017300001 -->
+                                </HBox>
+                                <HBox id="subVbox1152" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Text id="a1" text="PO. No"></Text>
+                                    <Input id="poNo" class="sapUiSmallMarginBegin inpWidth2"
+                                        maxLength="10" showValueHelp="true" width="50%"
+                                        valueHelpRequest="getAllPO"
+                                    />
+                                </HBox>
+                                <HBox id="subVbox11522" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Label id="a17" text="Vendor Inv. No." labelFor="VIN" />
+                                    <Input id="VIN" class="sapUiSmallMarginBegin inpWidth9"
+                                        width="150%" maxLength="40" required="true"/>
+                                </HBox>
+                                <HBox id="subVbox125" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Label id="b1444" text="Invoice Date" labelFor="invDate"/>
+                                    <DatePicker id="invDate" valueFormat="yyyyMMdd" class="sapUiSmallMarginBegin inpWidth3" required="true"/>
+                                </HBox>
 
-                            <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a5" text="E-mail"></Text>
-                                <Input id="email" type="Email"
-                                    class="sapUiSmallMarginBegin inpWidth7" editable="false" value="info@17300002.com" maxLength="241"/>
-                            </HBox>
+                                <HBox id="subVbox1156" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Text id="a5" text="E-mail"></Text>
+                                    <Input id="email" type="Email"
+                                        class="sapUiSmallMarginBegin inpWidth7" editable="false" value="info@17300002.com" maxLength="241"/>
+                                </HBox>
 
-                            <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd inputPymt44">
-                                <Text id="a111" text="Inv Document"></Text>
-                                <unified:FileUploader id="invDoc" change="handleFileChange"
-                                    class="sapUiSmallMarginBegin inpWidth5" />
-                                <Link
-                                    id="selectedFileText"
-                                    class="fileNameStyles sapUiSmallMarginBegin inpWidth8 inputPymt44"
-                                    press="openPDF"
-                                />
-                                <PDFViewer
-                                    id="_IDGenPDFViewer"
-                                    visible="false"
-                                />
-                            </HBox>
+                                <HBox id="subVbox1154" class="sapUiTinyMarginBeginEnd inputPymt44">
+                                    <Text id="a111" text="Inv Document"></Text>
+                                    <unified:FileUploader id="invDoc" change="handleFileChange"
+                                        class="sapUiSmallMarginBegin inpWidth5" />
+                                    <Link
+                                        id="selectedFileText"
+                                        class="fileNameStyles sapUiSmallMarginBegin inpWidth8 inputPymt44"
+                                        press="openPDF"
+                                    />
+                                    <PDFViewer
+                                        id="_IDGenPDFViewer"
+                                        visible="false"
+                                    />
+                                </HBox>
 
 
-                        </VBox>
+                            </VBox>
+                            <VBox class="container invdetailspodetails">
+                                <!-- <Text text="Po Number : select a po"></Text> -->
+                                <VBox class="poboxpadding">
+                                    <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
+                                        <Text text="PO type : " />
+                                        <Text id="invUplodePoType" class="sapUiMediumMarginBegin inpWidth10" />
+                                    </HBox>
+                                    <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
+                                        <Text class='textcreatedonpadding' text="Created On : " />
+                                        <DatePicker id="invUplodeCreatedOn" enabled="false" class="sapUiMediumMarginBegin inpWidth11" />
+                                    </HBox>
+                                    <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
+                                        <Text text="Payment Terms : " />
+                                        <Text id="invUplodePaymentTerms" class="sapUiMediumMarginBegin inpWidth12" />
+                                    </HBox>
+                                        <Text id="invUplodePaymentDescription" class="sapUiMediumMarginBegin inpWidth13" />
+                                    <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
+                                        <Text text="Delivery Address : " />
+                                        <Text id="invUplodeAddress" class="sapUiMediumMarginBegin inpWidth14" />
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+                        </HBox>
                     </VBox>
                 </FlexBox>
             </VBox>

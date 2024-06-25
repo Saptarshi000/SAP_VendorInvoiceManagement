@@ -81,6 +81,27 @@
   margin-left: 20px !important;
 }
 
+.inpWidth10 {
+  margin-left: 72px !important;
+}
+.textcreatedonpadding{
+  padding-top: 7px;
+}
+.inpWidth11 {
+  margin-left: 51px !important;
+}
+
+.inpWidth12 {
+  margin-left: 28px !important;
+}
+
+.inpWidth13 {
+  margin-left: 138px !important;
+}
+.inpWidth14 {
+  margin-left: 20px !important;
+}
+
 .inpWidthInvVerified1 {
   margin-left: 53px !important;
 }
@@ -186,11 +207,23 @@
 
 }
 
+.poboxpadding {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-left: 20px !important;
+  width: 110%;
+}
+
 .container {
   /* display: flex;
   justify-content: space-between; */
   flex-wrap: wrap;
   margin-top: 40px;
+}
+.invdetailspodetails{
+  margin-left: 62px;
 }
 
 .tabs {
