@@ -162,7 +162,7 @@ sap.ui.define([
                         
                         that.byId('invUplodePoType').setText(oData.POTYPE);
                         // that.byId('invUplodeCreatedOn').setDateValue(oData.CRET_DATE);
-                        that.byId('invUplodePaymentTerms').setText(oData.PAYMENT_TERM);
+                        // that.byId('invUplodePaymentTerms').setText(oData.PAYMENT_TERM);
                         that.byId('invUplodePaymentDescription').setText(oData.PMNT_TM_DESCP);
                         that.byId('invUplodeAddress').setText(oData.address);
                         
@@ -327,7 +327,7 @@ sap.ui.define([
                 if(oTable_Selected.length > 0){
 
                     for (let selectedItem of oTable_Selected) {
-                        sumAmt = sumAmt + parseFloat(selectedItem.getCells()[8].getText())
+                        sumAmt = ( sumAmt + parseFloat(selectedItem.getCells()[8].getText()) ).toFixed(3)
                         // console.log( selectedItem.getCells()[8].getText() )
                         jsonArr.push({
                             "PoNo": this.byId("poNo").getValue(),
@@ -337,12 +337,13 @@ sap.ui.define([
                             "ItemDesc": selectedItem.getCells()[2].getText(),
                             "OrderQuantity": selectedItem.getCells()[3].getText(),
                             "DeliverQuantity": selectedItem.getCells()[4].getText(),
+                            "InvoiceSubmittedQty":selectedItem.getCells()[5].getText(),
                             "InvoiceQty": selectedItem.getCells()[6].getValue(),
                             "Taxcode": selectedItem.getCells()[7].getText(),
                             "Taxamt": "0.000",
                             "Netpr": selectedItem.getCells()[8].getText(),
                             "Netwr": selectedItem.getCells()[9].getText(),
-                            "Uom": ""
+                            "Uom": "",
                         })
                     }
     

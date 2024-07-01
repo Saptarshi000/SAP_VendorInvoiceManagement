@@ -74,9 +74,9 @@
                                     </HBox>
                                     <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
                                         <Text text="Payment Terms : " />
-                                        <Text id="invUplodePaymentTerms" class="sapUiMediumMarginBegin inpWidth12" />
+                                        <Text id="invUplodePaymentDescription" class="sapUiMediumMarginBegin inpWidth12" />
                                     </HBox>
-                                        <Text id="invUplodePaymentDescription" class="sapUiMediumMarginBegin inpWidth13" />
+                                        <!-- <Text id="invUplodePaymentTerms" class="sapUiMediumMarginBegin inpWidth13" /> -->
                                     <HBox class="sapUiTinyMarginBeginEnd inputPymt44">
                                         <Text text="Delivery Address : " />
                                         <Text id="invUplodeAddress" class="sapUiMediumMarginBegin inpWidth14" />
@@ -191,7 +191,7 @@
                                                 text="{poLineItems>InvoiceSubmittedQty}"
                                             />
                                             <Input id="_IDGenInput1" 
-                                            type="Text" 
+                                            type="Number" 
                                             value="{poLineItems>InvoiceQty}" 
                                             width="50%"
                                             liveChange="handleChangeQty"
