@@ -46,6 +46,10 @@ sap.ui.define([
                 this.onclickSubmitted()
                 
                 this.getCountDatas(this.byId("vendNo").getText())
+
+                // Reset Filters
+                this.byId("invDate").setDateValue(null)
+                this.byId("RefN").setValue(null)
             },
             getCountDatas: function (venId) {
                 BusyIndicator.show();
@@ -124,6 +128,10 @@ sap.ui.define([
                 this.byId("tableObjBlocked").setVisible(false)
                 this.byId("tableObjPayments").setVisible(false)
 
+                // Reset Filters
+                this.byId("invDate").setDateValue(null)
+                this.byId("RefN").setValue(null)
+
                 this.getInvStatus(this.selectedTable)
             },
             onclickverified: function () {
@@ -164,6 +172,7 @@ sap.ui.define([
                 
                 if(sQuery){
                     aFilter.push( new Filter("portal_ref", FilterOperator.Contains, sQuery));
+                    aFilter.push( new Filter("inv_date", FilterOperator.Contains, dQuery));
                 }
                 else{
                     aFilter.push( new Filter("inv_date", FilterOperator.Contains, dQuery));
@@ -184,9 +193,7 @@ sap.ui.define([
                 var oBinding = oList.getBinding("items");
                 oBinding.filter(aFilter);
 
-                // Reset Filters
-                this.byId("invDate").setDateValue(null)
-                this.byId("RefN").setValue(null)
+                
             }
         });
     });
