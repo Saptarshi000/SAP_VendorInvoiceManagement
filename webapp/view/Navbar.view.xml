@@ -40,12 +40,12 @@
                 icon="sap-icon://batch-payments"
                 press="onClickpymntReceived"
             />
-            <Button
+            <!-- <Button
                 id='dashboard'
                 text='Debit/Credit'
                 icon="sap-icon://bbyd-dashboard"
                 press="onClickDbtCr"
-            />
+            /> -->
             <ToolbarSpacer id="_IDGenToolbarSpacer1" />
             <Button
                 type="Reject"
